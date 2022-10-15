@@ -1,13 +1,14 @@
 import React from "react"
 
-function Home() {
+function MovieHistory() {
     return (
-        <div className="home">
+        <div className="movie-history">
             <header>
+
 
             </header>
         </div>
     );
 }
 
-export default Home;
+export default MovieHistory;

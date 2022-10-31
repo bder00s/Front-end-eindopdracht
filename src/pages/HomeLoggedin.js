@@ -1,13 +1,14 @@
 import React from "react"
 
-function Home() {
+function HomeLoggedin() {
     return (
         <div className="home">
             <header>
+<h1>MovieMood + logo</h1>
 
             </header>
         </div>
     );
 }
 
-export default Home;
+export default HomeLoggedin;

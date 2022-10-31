@@ -1,8 +1,8 @@
 import React from "react"
 
-function Register() {
+function Result() {
     return (
-        <div className="register">
+        <div className="result">
             <header>
 
 
@@ -11,4 +11,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default Result;

@@ -1,25 +1,30 @@
 import React from "react"
 import {Link, useHistory} from "react-router-dom";
+import logo from "../assets/logo2.png"
+import NavBar from "../Components/NavBar";
 
 
-function LandingLogin({toggleAuth}) {
-    const history = useHistory()
+
+function Home({toggleAuth}) {
+    const history = useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log("gebruiker logt in")
+        console.log("gebruiker logt in");
     }
-
     function signIn() {
         toggleAuth(true);
-        history.push("/home-logged-in")
+        history.push("/start");
     }
 
 
 
     return (
         <div className="login-page">
-                <h1>MovieMood + Logo</h1>
+            <img className="main-logo" src={logo} alt="logo"/>
+
+            {/*INVOERVELDEN VOOR HET INLOGGEN*/}
+
                 <form className="login-form" onSubmit={handleSubmit}>
                     <label id="login">
                         <input
@@ -37,11 +42,13 @@ function LandingLogin({toggleAuth}) {
                         onClick={signIn}
                         className="login-button"
                         type="submit">
-                        Login (dit wordt een knop)
+                        Login
                     </button>
                 </form>
+
+            {/*LINK NAAR REGISTRATIEPAGINA*/}
                 <button type="button">
-                    <Link to="/register">Registreren</Link>
+                    <Link to="/register">Maak een account aan</Link>
                 </button>
 
 
@@ -49,4 +56,4 @@ function LandingLogin({toggleAuth}) {
     );
 }
 
-export default LandingLogin;
+export default Home;

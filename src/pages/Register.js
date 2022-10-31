@@ -1,11 +1,26 @@
 import React from "react"
 import {Link, useHistory} from "react-router-dom";
+import register from "../assets/register-header.svg"
+import NavBar from "../Components/NavBar";
 
 
 function Register() {
+
+
+    function accountMade(e) {
+        e.preventDefault()
+        console.log("gebruiker heeft account aangemaakt")
+    }
+
     return (
+<>
+    {/*<NavBar/>*/}
         <div className="register">
-                <h1>Registreren</h1>
+
+              <img className="register-header" src={register} alt="register text" />
+
+            {/*INVOERVELDEN VOOR HET REGISTREREN*/}
+
                 <form className="register-page">
                     <label id="email-register">
                         Geef een emailadres op
@@ -24,9 +39,16 @@ function Register() {
                             placeholder="Wachtwoord"
                         />
                     </label>
+                    <button type="submit"
+                            onClick={accountMade}
+                    >
+                        Registreer!
+                    </button>
                 </form>
 
         </div>
+
+</>
     );
 }
 

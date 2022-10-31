@@ -1,31 +1,34 @@
 import React, {useState} from "react";
-import './App.css';
+import "./App.css";
 import {Switch, Route} from "react-router-dom";
-import HomeLoggedin from "./pages/HomeLoggedin";
-import LandingLogin from "./pages/LandingLogin";
+import StartScreen from "./pages/StartScreen";
+import Home from "./pages/Home";
 import Register from "./pages/Register";
 import QuestionOne from "./pages/QuestionOne";
 import QuestionTwo from "./pages/QuestionTwo";
 import QuestionThree from "./pages/QuestionThree";
 import FilmResult from "./pages/FilmResult";
 import MovieHistory from "./pages/MovieHistory";
+import "./styling/navbar-styling.css";
 
 function App() {
-    const [isAuth, toggleIsAuth] = useState(false);
+    // const [isAuth, toggleIsAuth] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
           <Switch>
-              <Route path="/">
-                  <LandingLogin/>
+              <Route exact path="/">
+                  <Home/>
               </Route>
               <Route path="/register">
                   <Register/>
               </Route>
-              <Route path="/home-logged-in" >
-                  <HomeLoggedin />
+              <Route path="/start" >
+                  <StartScreen />
               </Route>
-              <Route path="/question-one"  toggleAuth={toggleIsAuth}>
+              <Route path="/question-one"
+                     // toggleAuth={toggleIsAuth}
+              >
                   <QuestionOne/>
               </Route>
               <Route path="/question-two">

@@ -3,4 +3,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    background-color: #D0E7F4;
+}
+
+.main-logo {
+    width: 200px;
+}
+
+ul {
+    list-style-type: none;
 }

@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import "./App.css";
+import {Switch, Route} from "react-router-dom";
+import StartScreen from "./pages/StartScreen";
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import QuestionOne from "./pages/QuestionOne";
+import QuestionTwo from "./pages/QuestionTwo";
+import QuestionThree from "./pages/QuestionThree";
+import FilmResult from "./pages/FilmResult";
+import MovieHistory from "./pages/MovieHistory";
+import "./styling/navbar-styling.css";
 
 function App() {
+    // const [isAuth, toggleIsAuth] = useState(false);
+
+    // toggleAuth={toggleIsAuth}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <Switch>
+              <Route exact path="/"> <Home/> </Route>
+              <Route path="/register"> <Register/> </Route>
+              <Route path="/start" > <StartScreen /> </Route>
+              <Route path="/question-one"> <QuestionOne/> </Route>
+              <Route path="/question-two"> <QuestionTwo/> </Route>
+              <Route path="/question-three"> <QuestionThree/> </Route>
+              <Route path="/result"> <FilmResult/> </Route>
+              <Route path="/movie-history"> <MovieHistory/> </Route>
+          </Switch>
     </div>
   );
 }

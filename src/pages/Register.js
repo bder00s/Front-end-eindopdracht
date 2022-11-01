@@ -1,54 +1,65 @@
-import React from "react"
+import React, {useState} from "react"
 import {Link, useHistory} from "react-router-dom";
 import register from "../assets/register-header.svg"
 import NavBar from "../Components/NavBar";
+import Inputfield from "../Components/Inputfield";
 
 
 function Register() {
+    const [registerEmail, setRegisterEmail] = useState('');
+    const [registerPassword, setRegisterPassword] = useState('');
 
-
-    function accountMade(e) {
+    function handleSubmitRegister(e) {
         e.preventDefault()
-        console.log("gebruiker heeft account aangemaakt")
+        console.log(
+            `Gebruiker heeft account aangemaakt.
+            Emailadres: ${registerEmail},  
+            Wachtwoord: ${registerPassword}
+           `)
     }
 
     return (
-<>
-    {/*<NavBar/>*/}
-        <div className="register">
+        <>
+            {/*<NavBar/>*/}
+            <div className="register">
+                {/*//HEADER*/}
+                <img className="register-header" src={register} alt="register text"/>
 
-              <img className="register-header" src={register} alt="register text" />
+                {/*INVOERVELDEN VOOR HET REGISTREREN*/}
 
-            {/*INVOERVELDEN VOOR HET REGISTREREN*/}
+                <form
+                    className="register-page"
+                    onSubmit={handleSubmitRegister}>
+                    <Inputfield
+                        fieldId="email-register"
+                        fieldText="Geef een emailadres op"
+                        fieldType="text"
+                        fieldName="email-register"
+                        fieldPlaceholder="Emailadres"
+                        fieldContent={registerEmail}
+                        setFieldContent={setRegisterEmail}
+                    />
 
-                <form className="register-page">
-                    <label id="email-register">
-                        Geef een emailadres op
-                        <input
-                            type="text"
-                            name="email-register"
-                            placeholder="Emailadres"
-                        />
-                        </label>
+                    <Inputfield
+                        fieldId="password-register"
+                        fieldText="Geef een wachtwoord op"
+                        fieldType="password"
+                        fieldName="password-register"
+                        fieldPlaceholder="Wachtwoord"
+                        fieldContent={registerPassword}
+                        setFieldContent={setRegisterPassword}
+                    />
 
-                    <label id="password-register">
-                        Geef een wachtwoord op
-                        <input
-                            type="password"
-                            name="password-register"
-                            placeholder="Wachtwoord"
-                        />
-                    </label>
                     <button type="submit"
-                            onClick={accountMade}
+                        // onClick={accountMade}
                     >
                         Registreer!
                     </button>
                 </form>
 
-        </div>
+            </div>
 
-</>
+        </>
     );
 }
 

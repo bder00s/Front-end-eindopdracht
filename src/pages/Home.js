@@ -1,22 +1,31 @@
-import React from "react"
+import React, {useState} from "react"
 import {Link, useHistory} from "react-router-dom";
 import logo from "../assets/logo2.png"
 import NavBar from "../Components/NavBar";
-
+import Inputfield from "../Components/Inputfield";
 
 
 function Home({toggleAuth}) {
     const history = useHistory();
 
-    function handleSubmit(e) {
+    const [loginEmail, setLoginEmail] = useState('');
+    const [loginPassword, setLoginPassword] = useState('');
+
+
+    //FUNCTIE DIE HET INLOGGEN AFHANDELD
+    function handleSubmitLogin(e) {
         e.preventDefault();
-        console.log("gebruiker logt in");
-    }
-    function signIn() {
-        toggleAuth(true);
-        history.push("/start");
+        console.log(`
+            Gebruiker logt in.
+            Emailadres: ${loginEmail},
+            Wachtwoord: ${loginPassword}
+            `);
     }
 
+    function signIn() {
+        // toggleAuth(true);
+        history.push("/start");
+    }
 
 
     return (
@@ -25,31 +34,38 @@ function Home({toggleAuth}) {
 
             {/*INVOERVELDEN VOOR HET INLOGGEN*/}
 
-                <form className="login-form" onSubmit={handleSubmit}>
-                    <label id="login">
-                        <input
-                            type="text"
-                            name="email-login"
-                            placeholder="Emailadres"
-                        />
-                        <input
-                            type="password"
-                            name="password-login"
-                            placeholder="Wachtwoord"
-                        />
-                    </label>
-                    <button
-                        onClick={signIn}
-                        className="login-button"
-                        type="submit">
-                        Login
-                    </button>
-                </form>
+
+            <form className="login-form" onSubmit={handleSubmitLogin}>
+                <Inputfield
+                    fieldId="email-login"
+                    fieldType="text"
+                    fieldName="email-login"
+                    fieldPlaceholder="Emailadres"
+                    fieldContent={loginEmail}
+                    setFieldContent={setLoginEmail}
+                />
+
+                <Inputfield
+                    fieldId="password-login"
+                    fieldType="password"
+                    fieldName="password-login"
+                    fieldPlaceholder="Wachtwoord"
+                    fieldContent={loginPassword}
+                    setFieldContent={setLoginPassword}
+                />
+
+                <button
+                    onClick={signIn}
+                    className="login-button"
+                    type="submit">
+                    Login
+                </button>
+            </form>
 
             {/*LINK NAAR REGISTRATIEPAGINA*/}
-                <button type="button">
-                    <Link to="/register">Maak een account aan</Link>
-                </button>
+            <button type="button">
+                <Link to="/register">Maak een account aan</Link>
+            </button>
 
 
         </div>

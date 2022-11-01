@@ -11,6 +11,10 @@ function Home({toggleAuth}) {
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
 
+    function signIn() {
+        // toggleAuth(true);
+        history.push("/start");
+    }
 
     //FUNCTIE DIE HET INLOGGEN AFHANDELD
     function handleSubmitLogin(e) {
@@ -20,13 +24,8 @@ function Home({toggleAuth}) {
             Emailadres: ${loginEmail},
             Wachtwoord: ${loginPassword}
             `);
-    }
-
-    function signIn() {
-        // toggleAuth(true);
         history.push("/start");
     }
-
 
     return (
         <div className="login-page">

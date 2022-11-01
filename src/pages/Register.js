@@ -6,6 +6,7 @@ import Inputfield from "../Components/Inputfield";
 
 
 function Register() {
+    const history = useHistory();
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
 
@@ -16,6 +17,10 @@ function Register() {
             Emailadres: ${registerEmail},  
             Wachtwoord: ${registerPassword}
            `)
+    }
+
+    function accountMade() {
+        history.push("/");
     }
 
     return (
@@ -51,7 +56,7 @@ function Register() {
                     />
 
                     <button type="submit"
-                        // onClick={accountMade}
+                        onClick={accountMade}
                     >
                         Registreer!
                     </button>

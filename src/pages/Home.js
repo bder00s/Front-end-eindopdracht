@@ -11,6 +11,8 @@ function Home({toggleAuth}) {
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
 
+
+    //REDIRECT NAAR HOMEPAGINA NA INLOGGEN
     function signIn() {
         // toggleAuth(true);
         history.push("/start");

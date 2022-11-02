@@ -13,8 +13,7 @@ function NavBar() {
 
     return (
         <div className="nav-bar">
-            <nav>
-                <p>hallo, test</p>
+
                 <ul>
                     {/*DE HOMEBUTTON*/}
                     <li>
@@ -31,7 +30,7 @@ function NavBar() {
                         {/*HAMBURGER MENU*/}
                     {/*<li><Hamburger/></li>*/}
                 </ul>
-            </nav>
+
         </div>
     );
 }

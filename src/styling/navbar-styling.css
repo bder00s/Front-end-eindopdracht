@@ -1,7 +1,7 @@
 
 .nav-bar {
     background-color: #65B1EF;
-    border: #65B1EF solid 10px;
+    border: #65B1EF solid 5px;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
@@ -11,6 +11,7 @@
 }
 .home-icon {
     width: 40px;
+    margin: 5px;
 
 
 }
@@ -24,5 +25,5 @@
 
 .hamburger {
     width: 20px;
-    margin: 5px;
+    margin: 20px 5px 5px 5px
 }

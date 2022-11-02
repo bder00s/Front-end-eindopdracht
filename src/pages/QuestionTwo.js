@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import Answer from "../Components/Answer";
 import {Link, useHistory} from "react-router-dom";
 import NavButton from "../Components/NavButton";
+import NavBar from "../Components/NavBar";
 
 function QuestionTwo() {
     const history = useHistory();
@@ -29,6 +30,7 @@ function QuestionTwo() {
     return (
         <div className="question-two">
             <header>
+                <NavBar/>
             </header>
             <h3>Vraag 2</h3>
             <p>Hoe voel je je?</p>

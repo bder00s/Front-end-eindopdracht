@@ -2,6 +2,9 @@ import React, {useState} from "react"
 import {Link, useHistory} from "react-router-dom";
 import Answer from "../Components/Answer";
 import NavButton from "../Components/NavButton";
+import homeIcon from "../assets/home.svg";
+import header from "../assets/headertext.svg";
+import NavBar from "../Components/NavBar";
 
 // import NavBar from "../Components/NavBar";
 
@@ -22,6 +25,7 @@ function QuestionOne() {
     return (
         <div className="question-one">
             <header>
+                <NavBar/>
             </header>
             <h3>Vraag 1</h3>
             <p>Hoe is je dag?</p>

@@ -1,6 +1,28 @@
+
 .nav-bar {
     background-color: #65B1EF;
+    border: #65B1EF solid 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
-    width:20px;
+    justify-content: space-between;
+
+
+}
+.home-icon {
+    width: 40px;
+
+
+}
+
+
+.app-header {
+    width: 150px;
+    margin: 5px;
+
+}
+
+.hamburger {
+    width: 20px;
+    margin: 5px;
 }

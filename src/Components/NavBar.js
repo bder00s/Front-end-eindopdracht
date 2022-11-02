@@ -3,35 +3,28 @@ import {Link, useHistory} from "react-router-dom";
 import Hamburger from "./Hamburger"
 import homeIcon from "../assets/home.svg"
 import header from "../assets/headertext.svg"
+import hamburger from "../assets/Hamburger.svg"
 
 function NavBar() {
-    // const history = useHistory();
 
-    // function homeButton() {
-    //     history.push("/start")
-    // }
 
     return (
-        <div className="nav-bar">
-
+        <>
+            <article className="nav-bar">
                 <ul>
-                    {/*DE HOMEBUTTON*/}
                     <li>
                         <Link to="/start">
-                        <img
-                        src={homeIcon} className="home-icon" alt="homebutton"/>
-                        {/*onClick={homeButton}*/}
+                            <img src={homeIcon} className="home-icon" alt="homebutton"/>
                         </Link>
                     </li>
-
-                    {/*DE APP HEADER*/}
                     <li><img className="app-header" src={header} alt="app-header"/></li>
-
-                        {/*HAMBURGER MENU*/}
-                    {/*<li><Hamburger/></li>*/}
+                    <li><img className="hamburger" src={hamburger} alt="hamburger-menu"/></li>
                 </ul>
+            </article>
 
-        </div>
+
+        </>
+
     );
 }
 

@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import Answer from "../Components/Answer";
 import {Link, useHistory} from "react-router-dom";
 import NavButton from "../Components/NavButton";
+import NavBar from "../Components/NavBar";
 
 function QuestionThree() {
     const history = useHistory();
@@ -20,6 +21,7 @@ function QuestionThree() {
     return (
         <div className="question-three">
             <header>
+                <NavBar/>
             </header>
             <h3>Vraag 3</h3>
             <p>Wil je hier verandering in brengen?</p>

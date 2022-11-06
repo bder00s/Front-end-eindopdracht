@@ -1,33 +1,23 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios";
 import {getDramaMovie} from "../helpers/getDramaMovie";
+import {getActionMovie} from "../helpers/getActionMovie";
+import {getRomanceMovie} from "../helpers/getRomanceMovie";
+import {getComedyMovie} from "../helpers/getComedyMovie";
+import {getAdventureMovie} from "../helpers/getAdventureMovie";
 
 
-// const apiKey = process.env.REACT_APP_API_KEY
-const apiKey = "955bd41a"
+const keyApi = process.env.REACT_APP_API_KEY
+
 
 function Result() {
 
         const [filmResult, setFilmResult] = useState('');
     useEffect(() => {
 
-        // async function getMovie() {
-        //     try {
-        //         const result = await axios.get(`https://imdb-api.com/en/API/Keyword/${apiKey}/fantasy `);
-        //         console.log(result.data);
-        //         // setFilmResult(result.data.items[0])
-        //
-        //     } catch (e) {
-        //         console.error(e);
-        //     }
-        // }
-        //
-        // getMovie()
-
-
         async function getMovie() {
             try {
-                const result = await axios.get(`https://www.omdbapi.com/?apikey=${apiKey}&t=${getDramaMovie()}`);
+                const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${getAdventureMovie()}`);
                 console.log(result.data);
               setFilmResult(result.data)
 

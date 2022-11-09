@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, createContext} from "react"
 import {Link, useHistory} from "react-router-dom";
 import Answer from "../Components/Answer";
 import NavButton from "../Components/NavButton";
@@ -6,11 +6,11 @@ import homeIcon from "../assets/home.svg";
 import header from "../assets/headertext.svg";
 import NavBar from "../Components/NavBar";
 
-// import NavBar from "../Components/NavBar";
-
 function QuestionOne() {
     const [checkedGood, toggleCheckedGood] = useState(false);
-    const [checkedBad, toggleCheckedBad] = useState(false)
+    const [checkedBad, toggleCheckedBad] = useState(false);
+
+
     const history = useHistory();
 
     function handleSubmitOne(e) {
@@ -66,6 +66,7 @@ function QuestionOne() {
                 />
 
             </form>
+
         </div>
     );
 }

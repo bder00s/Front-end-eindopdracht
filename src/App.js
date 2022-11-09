@@ -16,6 +16,7 @@ function App() {
 
     // toggleAuth={toggleIsAuth}
   return (
+
     <div className="App">
           <Switch>
               <Route exact path="/"> <Home/> </Route>

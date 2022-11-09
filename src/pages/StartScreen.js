@@ -6,7 +6,7 @@ function StartScreen() {
     return (
         <div className="start">
           <img src={logo} className="main-logo" alt="logo"/>
-            <Link to="/question-one"> <h1>Begin hier!</h1></Link>
+            <Link to="/question-one"> <h1>Start hier!</h1></Link>
 
 
         </div>

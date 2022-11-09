@@ -7,7 +7,7 @@ const romanceMovies = [
     "the Age of Adaline",
     "20th Century Girl",
     "Forest Gump",
-    "The Notebook",
+    "Crazy stupid love",
     "Love Actually",
     "About Time",
     "Stardust",

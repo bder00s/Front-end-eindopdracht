@@ -12,7 +12,7 @@ const dramaMovies = [
     "Donnie Darko",
     "silver lining playbook",
     "Never let me go",
-    "Cherry",
+    "The place beyond the pines",
     "Life is Beautiful"]
 
 function getDramaMovie() {

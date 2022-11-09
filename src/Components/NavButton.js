@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-function NavButton({buttonType,buttonText, answerValues, valueOne, valueTwo}) {
+function NavButton({buttonType,buttonText, answerValues}) {
     return (
         <div>
             <button

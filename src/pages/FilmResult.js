@@ -24,28 +24,38 @@ function Result() {
     const {keepMood} = useContext(QuestionThreeContext);
 
     function chooseGenre() {
-        const genre = undefined;
+        const genre = "";
         switch (genre) {
             case    checkedGreat && keepMood :
-                return getComedyMovie();
+                getComedyMovie()
+                break;
             case checkedGreat && changeMood:
-                return getDramaMovie();
+                getDramaMovie()
+                break;
             case checkedLoved && keepMood :
-                return getRomanceMovie();
+                getRomanceMovie()
+                break;
             case checkedLoved && changeMood :
-                return getActionMovie();
+                getActionMovie()
+                break;
             case checkedShitty && keepMood :
-                return getDramaMovie();
+                getDramaMovie()
+                break;
             case checkedShitty && changeMood :
-                return getComedyMovie();
+                getComedyMovie()
+                break;
             case checkedAngry && keepMood :
-                return getActionMovie();
+                getActionMovie()
+                break;
             case checkedAngry && changeMood :
-                return getComedyMovie();
+                getComedyMovie();
+                break;
             case checkedBored && keepMood :
-                return getRomanceMovie();
+                getRomanceMovie()
+                break;
             case checkedBored && changeMood :
-                return getAdventureMovie();
+                getAdventureMovie()
+                break;
             default: console.log("geen genre kunnen kiezen")
         }
     }
@@ -65,6 +75,7 @@ function Result() {
         }
 
         getMovie()
+
     }, []);
 
 

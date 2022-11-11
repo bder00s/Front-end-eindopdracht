@@ -1,4 +1,4 @@
-
+/*-------------------------NAVBAR EN ICONS ERIN------------------------------*/
 .nav-bar {
     background-color: #65B1EF;
     border: #65B1EF solid 5px;
@@ -6,14 +6,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
-
 }
+
 .home-icon {
     width: 40px;
     margin: 5px;
-
-
 }
 
 
@@ -23,7 +20,61 @@
 
 }
 
+
+
+.activeHomeButton :hover {
+    width: 45px;
+    margin: 0;
+
+}
+/*-----------------------HAMBURGER MENU---------------------------*/
+
 .hamburger {
     width: 20px;
-    margin: 20px 5px 5px 5px
+    margin: 14px;
+}
+
+
+/*-----------------------SLIDING MENU---------------------------*/
+
+.menu {
+    width: 50%;
+    height: 50%;
+    background-color: #65B1EF;
+    position: absolute;
+    padding: 5px;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    width: 100px;
+    height: 400px;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.menubar {
+    margin: 20px;
+}
+
+/*-----------------------ANIMATIE---------------------------*/
+.burger-bar.clicked:nth-child(1) {
+    transform: rotate(90deg);
+    transition: ease-out 0.5s;
+    margin: 14px;
+}
+
+.burger-bar.unclicked:nth-child(1) {
+    transform: rotate(180deg);
+    transition: ease-out 0.5s;
+    margin: 14px;
+}
+
+.burger-bar.unclicked:hover {
+    width: 35px;
+    margin: 14px;
 }

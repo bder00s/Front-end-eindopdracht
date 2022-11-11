@@ -1,9 +1,10 @@
 import React from "react"
-import {Link, useHistory} from "react-router-dom";
+import {Link, NavLink, useHistory} from "react-router-dom";
 import Hamburger from "./Hamburger"
 import homeIcon from "../assets/home.svg"
 import header from "../assets/headertext.svg"
 import hamburger from "../assets/Hamburger.svg"
+
 
 function NavBar() {
 
@@ -13,12 +14,13 @@ function NavBar() {
             <article className="nav-bar">
                 <ul>
                     <li>
-                        <Link to="/start">
+                        <Link to="/start" className="activeHomeButton">
                             <img src={homeIcon} className="home-icon" alt="homebutton"/>
                         </Link>
                     </li>
                     <li><img className="app-header" src={header} alt="app-header"/></li>
-                    <li><img className="hamburger" src={hamburger} alt="hamburger-menu"/></li>
+                    <li><Hamburger classname="activeHamburgerButton"/></li>
+                    {/*<li><img className="hamburger" src={hamburger} alt="hamburger-menu"/></li>*/}
                 </ul>
             </article>
 

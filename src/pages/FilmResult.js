@@ -9,6 +9,7 @@ import share from "../assets/share.svg"
 import retry from "../assets/test.png"
 import {QuestionTwoContext} from "./QuestionTwo";
 import {QuestionThreeContext} from "./QuestionThree";
+import NavBar from "../Components/NavBar";
 
 
 const keyApi = process.env.REACT_APP_API_KEY
@@ -81,6 +82,7 @@ function Result() {
 
     return (
         <>
+            <NavBar/>
             <div className="result">
                 <h1>{filmResult.Title}</h1>
                 <h2>{filmResult.Year}</h2>

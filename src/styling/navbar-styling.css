@@ -20,17 +20,23 @@
     margin: 5px;
 }
 
-.history-icon {
+.history-icon, .login-icon, .home-iconE > li {
     width: 30px;
     text-align: center;
-    margin: 5px;
+    margin: 7px;
 }
 
-.login-icon {
-    width: 30px;
-    text-align: center;
-    margin: 5px;
-}
+/*.login-icon {*/
+/*    width: 30px;*/
+/*    text-align: center;*/
+/*    margin: 5px;*/
+/*}*/
+
+/*.home-iconE {*/
+/*    width: 30px;*/
+/*    text-align: center;*/
+/*    margin:5px ;*/
+/*}*/
 
 .app-header {
     width: 150px;
@@ -41,6 +47,11 @@
 .activeHomeButton :hover {
     width: 45px;
     margin: 0;
+
+}
+
+.activeHome-iconE :hover {
+    width: 35px;
 
 }
 
@@ -86,7 +97,7 @@
 .menubar {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     margin: 20px;
     text-align: center;
 }

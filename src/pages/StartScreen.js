@@ -10,8 +10,10 @@ function StartScreen() {
 
     return (
         <div className="start">
-         <article>
-             <img src={logo} className="main-logo" alt="logo"/> <Hamburger/>
+
+         <article className="startPageHeader">
+             <img src={logo} className="main-logo" alt="logo"/>
+             <Hamburger />
          </article>
             <Link to="/question-one" className="activeStartButton">
             <img src={startLogo}  alt="Start button"  className="startButton"/>

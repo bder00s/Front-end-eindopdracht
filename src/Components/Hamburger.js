@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext";
 import {useHistory} from "react-router-dom";
 import homeIcon from "../assets/home.svg";
+import homeEmpty from "../assets/HomeButtonUnfilled.svg";
 
 const Hamburger = () => {
     const history = useHistory();
@@ -41,29 +42,31 @@ const Hamburger = () => {
                 <ul className="menubar">
                     <li>
                         <Link to="/movie-history" className="activeHistoryButton">
-                        <img src={moviehistoryButton} className="history-icon"  alt="Movie history"/>
-                    </Link>
+                            <img src={moviehistoryButton} className="history-icon" alt="Movie history"/>
+                        </Link>
                         Movie
                         History
                     </li>
 
-                    { isAuth ?
-                    <button onClick={logout}>
-                        <Link to="/" className="activeLoginButton">
-                        <img src={loginLogout} className="login-icon" alt="Login or logout button"/>
-                            Logout
-                    </Link>
-                    </button>
-                        :
-                        <button className="loginLogoutButton" onClick={() => history.push('/')}>
+                    {isAuth ?
+                        <div onClick={logout}>
                             <Link to="/" className="activeLoginButton">
                                 <img src={loginLogout} className="login-icon" alt="Login or logout button"/>
-                                Login
                             </Link>
-                        </button>}
-                    <li>  <Link to="/start" className="activeHomeButton">
-                        <img src={homeIcon} className="home-icon" alt="homebutton"/>
-                    </Link>Home</li>
+                            Logout
+                        </div>
+                        :
+                        <div className="loginLogoutButton" onClick={() => history.push('/')}>
+                            <Link to="/" className="activeLoginButton">
+                                <img src={loginLogout} className="login-icon" alt="Login or logout button"/>
+
+                            </Link>
+                            Login
+                        </div>}
+                    <li><Link to="/start" className="activeHome-iconE">
+                        <img src={homeEmpty} className="home-iconE" alt="homebutton"/>
+                    </Link>Home
+                    </li>
                 </ul>
             </div>
 

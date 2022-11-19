@@ -8,3 +8,15 @@
     transform: rotate(-20deg);
     transition: ease-out 0.5s;
 }
+
+.startPageHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 40px 0;
+}
+
+.startPageHeader > .main-logo {
+    margin: 40px 0 0 0;
+}

@@ -1,12 +1,22 @@
 import React from "react"
 import logo from "../assets/logo2.png"
 import {Link} from "react-router-dom";
+import Hamburger from "../Components/Hamburger";
+import startLogo from "../assets/startLogo.png"
+
+
+
 
 function StartScreen() {
     return (
         <div className="start">
-          <img src={logo} className="main-logo" alt="logo"/>
-            <Link to="/question-one"> <h1>Start hier!</h1></Link>
+         <article>
+             <img src={logo} className="main-logo" alt="logo"/> <Hamburger/>
+         </article>
+            <Link to="/question-one">
+            <img src={startLogo} className="start-logo" alt="Start button" width="250"/>
+            </Link>
+
 
 
         </div>

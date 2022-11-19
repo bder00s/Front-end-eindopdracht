@@ -10,7 +10,6 @@ function QuestionOne() {
     const [checkedGood, toggleCheckedGood] = useState(false);
     const [checkedBad, toggleCheckedBad] = useState(false);
 
-
     const history = useHistory();
 
     function handleSubmitOne(e) {
@@ -19,7 +18,6 @@ function QuestionOne() {
         Ik voel me goed ${checkedGood}
         Ik voel me slecht ${checkedBad}`)
         history.push("/question-two")
-
     }
 
     return (

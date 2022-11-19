@@ -13,6 +13,17 @@
     margin: 5px;
 }
 
+.history-icon {
+    width: 30px;
+    text-align: center;
+    margin: 5px;
+}
+
+.login-icon {
+    width: 30px;
+    text-align: center;
+    margin: 5px;
+}
 
 .app-header {
     width: 150px;
@@ -20,12 +31,18 @@
 
 }
 
-
-
 .activeHomeButton :hover {
     width: 45px;
     margin: 0;
 
+}
+
+.activeHistoryButton :hover {
+    width: 35px;
+}
+
+.activeLoginButton :hover {
+    width: 35px;
 }
 /*-----------------------HAMBURGER MENU---------------------------*/
 
@@ -52,13 +69,18 @@
 
 .visible {
     width: 100px;
-    height: 400px;
+    height: 250px;
     border-radius: 20px;
     padding: 5px;
+
 }
 
 .menubar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 20px;
+    text-align: center;
 }
 
 /*-----------------------ANIMATIE---------------------------*/

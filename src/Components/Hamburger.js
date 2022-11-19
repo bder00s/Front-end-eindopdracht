@@ -1,14 +1,19 @@
 // https://www.youtube.com/watch?v=gAGcjlJyKk0&ab_channel=WebDevBasics
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import hamburger from '../assets/Hamburger.svg'
 import moviehistoryButton from '../assets/moviehistory.svg'
 import loginLogout from '../assets/login.svg'
 import {Link} from "react-router-dom";
+import {AuthContext} from "../context/AuthContext";
+import {useHistory} from "react-router-dom";
+import homeIcon from "../assets/home.svg";
 
 const Hamburger = () => {
+    const history = useHistory();
     const [burgerClass, setBurgerClass] = useState("burger-bar unclicked");
     const [menuClass, setMenuClass] = useState("menu hidden");
     const [isMenuClicked, setIsMenuClicked] = useState(false);
+    const {isAuth, login, logout} = useContext(AuthContext);
 
     const updateMenu = () => {
         if (!isMenuClicked) {
@@ -41,13 +46,24 @@ const Hamburger = () => {
                         Movie
                         History
                     </li>
-                    <li>
+
+                    { isAuth ?
+                    <button onClick={logout}>
                         <Link to="/" className="activeLoginButton">
                         <img src={loginLogout} className="login-icon" alt="Login or logout button"/>
+                            Logout
                     </Link>
-                        Login/
-                        Logout
-                    </li>
+                    </button>
+                        :
+                        <button className="loginLogoutButton" onClick={() => history.push('/')}>
+                            <Link to="/" className="activeLoginButton">
+                                <img src={loginLogout} className="login-icon" alt="Login or logout button"/>
+                                Login
+                            </Link>
+                        </button>}
+                    <li>  <Link to="/start" className="activeHomeButton">
+                        <img src={homeIcon} className="home-icon" alt="homebutton"/>
+                    </Link>Home</li>
                 </ul>
             </div>
 

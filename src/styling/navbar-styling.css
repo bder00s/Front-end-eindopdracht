@@ -1,4 +1,11 @@
 /*-------------------------NAVBAR EN ICONS ERIN------------------------------*/
+
+.menubar > button {
+    border: none;
+    background-color: #65B1EF;
+    color: black;
+}
+
 .nav-bar {
     background-color: #65B1EF;
     border: #65B1EF solid 5px;
@@ -44,6 +51,7 @@
 .activeLoginButton :hover {
     width: 35px;
 }
+
 /*-----------------------HAMBURGER MENU---------------------------*/
 
 .hamburger {
@@ -84,6 +92,7 @@
 }
 
 /*-----------------------ANIMATIE---------------------------*/
+
 .burger-bar.clicked:nth-child(1) {
     transform: rotate(90deg);
     transition: ease-out 0.5s;

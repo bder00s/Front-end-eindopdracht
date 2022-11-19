@@ -37,7 +37,7 @@ function Register() {
                     onSubmit={handleSubmitRegister}>
                     <Inputfield
                         fieldId="email-register"
-                        fieldText="Geef een emailadres op"
+                        fieldText="Geef een emailadres op: "
                         fieldType="text"
                         fieldName="email-register"
                         fieldPlaceholder="Emailadres"
@@ -47,17 +47,19 @@ function Register() {
 
                     <Inputfield
                         fieldId="password-register"
-                        fieldText="Geef een wachtwoord op"
+                        fieldText="Geef een wachtwoord op: "
                         fieldType="password"
                         fieldName="password-register"
                         fieldPlaceholder="Wachtwoord"
                         fieldContent={registerPassword}
                         setFieldContent={setRegisterPassword}
                     />
-
+                    <button type="button"
+                            onClick={() => history.push("/")}>
+                        Terug
+                    </button>
                     <button type="submit"
-                        onClick={accountMade}
-                    >
+                            onClick={accountMade}>
                         Registreer!
                     </button>
                 </form>

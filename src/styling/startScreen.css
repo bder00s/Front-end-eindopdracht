@@ -1,0 +1,10 @@
+.startButton {
+    width: 250px;
+}
+
+.activeStartButton :hover {
+    width: 260px;
+    margin: 0;
+    transform: rotate(-20deg);
+    transition: ease-out 0.5s;
+}

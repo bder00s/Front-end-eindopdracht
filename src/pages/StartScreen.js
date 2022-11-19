@@ -6,15 +6,15 @@ import startLogo from "../assets/startLogo.png"
 
 
 
-
 function StartScreen() {
+
     return (
         <div className="start">
          <article>
              <img src={logo} className="main-logo" alt="logo"/> <Hamburger/>
          </article>
-            <Link to="/question-one">
-            <img src={startLogo} className="start-logo" alt="Start button" width="250"/>
+            <Link to="/question-one" className="activeStartButton">
+            <img src={startLogo}  alt="Start button"  className="startButton"/>
             </Link>
 
 

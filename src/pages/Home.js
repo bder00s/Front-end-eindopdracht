@@ -3,6 +3,7 @@ import {Link, useHistory} from "react-router-dom";
 import logo from "../assets/logo2.png"
 import NavBar from "../Components/NavBar";
 import Inputfield from "../Components/Inputfield";
+import homeIcon from "../assets/home.svg";
 
 
 function Home({toggleAuth}) {
@@ -31,6 +32,8 @@ function Home({toggleAuth}) {
 
     return (
         <div className="login-page">
+
+
             <img className="main-logo" src={logo} alt="logo"/>
 
             {/*INVOERVELDEN VOOR HET INLOGGEN*/}

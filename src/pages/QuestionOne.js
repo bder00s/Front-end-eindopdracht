@@ -1,13 +1,15 @@
-import React, {useState} from "react"
+import React, {useState, createContext} from "react"
 import {Link, useHistory} from "react-router-dom";
 import Answer from "../Components/Answer";
 import NavButton from "../Components/NavButton";
-
-// import NavBar from "../Components/NavBar";
+import homeIcon from "../assets/home.svg";
+import header from "../assets/headertext.svg";
+import NavBar from "../Components/NavBar";
 
 function QuestionOne() {
     const [checkedGood, toggleCheckedGood] = useState(false);
-    const [checkedBad, toggleCheckedBad] = useState(false)
+    const [checkedBad, toggleCheckedBad] = useState(false);
+
     const history = useHistory();
 
     function handleSubmitOne(e) {
@@ -16,12 +18,12 @@ function QuestionOne() {
         Ik voel me goed ${checkedGood}
         Ik voel me slecht ${checkedBad}`)
         history.push("/question-two")
-
     }
 
     return (
         <div className="question-one">
             <header>
+                <NavBar/>
             </header>
             <h3>Vraag 1</h3>
             <p>Hoe is je dag?</p>
@@ -62,6 +64,7 @@ function QuestionOne() {
                 />
 
             </form>
+
         </div>
     );
 }

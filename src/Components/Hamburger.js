@@ -48,7 +48,7 @@ const Hamburger = () => {
                         History
                     </li>
 
-                    {isAuth ?
+                    {isAuth.isAuth ?
                         <div onClick={logout}>
                             <Link to="/" className="activeLoginButton">
                                 <img src={loginLogout} className="login-icon" alt="Login or logout button"/>
@@ -59,13 +59,11 @@ const Hamburger = () => {
                         <div className="loginLogoutButton" onClick={() => history.push('/')}>
                             <Link to="/" className="activeLoginButton">
                                 <img src={loginLogout} className="login-icon" alt="Login or logout button"/>
-
-                            </Link>
-                            Login
+                            </Link>Login
                         </div>}
+
                     <li><Link to="/start" className="activeHome-iconE">
-                        <img src={homeEmpty} className="home-iconE" alt="homebutton"/>
-                    </Link>Home
+                        <img src={homeEmpty} className="home-iconE" alt="homebutton"/></Link>Home
                     </li>
                 </ul>
             </div>

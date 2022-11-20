@@ -5,6 +5,8 @@ import './index.css';
 import App from './App';
 import {AuthContext} from "./context/AuthContext";
 import AuthContextProvider from "./context/AuthContext";
+import QuestionTwo from "./pages/QuestionTwo";
+import QuestionThree from "./pages/QuestionThree";
 
 
 

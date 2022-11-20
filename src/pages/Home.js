@@ -6,6 +6,8 @@ import Inputfield from "../Components/Inputfield";
 import homeIcon from "../assets/home.svg";
 import {AuthContext} from "../context/AuthContext";
 import NavButton from "../Components/NavButton";
+import axios from "axios";
+import {click} from "@testing-library/user-event/dist/click";
 
 
 function Home({toggleAuth}) {
@@ -17,9 +19,6 @@ function Home({toggleAuth}) {
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
 
-
-
-
     //FUNCTIE DIE HET INLOGGEN AFHANDELD
     function handleSubmitLogin(e) {
         e.preventDefault();
@@ -30,7 +29,21 @@ function Home({toggleAuth}) {
             `);
         history.push("/start");
         login()
+        // clickHandler()
     }
+
+        //POST REQUEST NAAR BACKEND
+        // async function clickHandler() {
+        //     try {
+        //         const response = await axios.post('http://localhost:3000/login', {
+        //             email: " ",
+        //             password: " ",
+        //         });
+        //         console.log(response)
+        //
+        //     } catch (e) {
+        //         console.error(e)
+        //     }
 
     return (
         <div className="login-page">

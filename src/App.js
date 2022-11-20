@@ -33,7 +33,7 @@ const {isAuth} = useContext(AuthContext);
           <Switch>
               <Route exact path="/"> <Home/> </Route>
               <Route path="/register"> <Register/> </Route>
-              <Route path="/start"> { isAuth ?  <StartScreen/> : <Redirect to="/" />} </Route>
+              <Route path="/start"> { isAuth.isAuth ?  <StartScreen/> : <Redirect to="/" />} </Route>
               <PrivateRoute path="/question-one" isAuth={isAuth}><QuestionOne/></PrivateRoute>
               <PrivateRoute path="/question-two" isAuth={isAuth}> <QuestionTwo/> </PrivateRoute>
               <PrivateRoute path="/question-three" isAuth={isAuth}> <QuestionThree/> </PrivateRoute>

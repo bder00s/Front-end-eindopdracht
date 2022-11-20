@@ -17,11 +17,9 @@ function Register() {
             Emailadres: ${registerEmail},  
             Wachtwoord: ${registerPassword}
            `)
-    }
-
-    function accountMade() {
         history.push("/");
     }
+
 
     return (
         <>
@@ -59,7 +57,7 @@ function Register() {
                         Terug
                     </button>
                     <button type="submit"
-                            onClick={accountMade}>
+                            onClick={handleSubmitRegister}>
                         Registreer!
                     </button>
                 </form>

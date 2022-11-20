@@ -61,7 +61,7 @@ function Home({toggleAuth}) {
                 />
 
                 <button
-                    onClick={login}
+                    onClick={handleSubmitLogin}
                     className="login-button"
                     type="submit"
                     disabled={!loginPassword && !loginEmail}>

@@ -20,7 +20,7 @@ function NavBar() {
                     </li>
                     <li><img className="app-header" src={header} alt="app-header"/></li>
                     <li><Hamburger classname="activeHamburgerButton"/></li>
-                    {/*<li><img className="hamburger" src={hamburger} alt="hamburger-menu"/></li>*/}
+
                 </ul>
             </article>
 

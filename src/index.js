@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import {AuthContext} from "./context/AuthContext";
+import AuthContextProvider from "./context/AuthContext";
+import QuestionTwo from "./pages/QuestionTwo";
+import QuestionThree from "./pages/QuestionThree";
 
 
 
@@ -10,7 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Router>
   <React.StrictMode>
+      <AuthContextProvider>
       <App />
+      </AuthContextProvider>
   </React.StrictMode>
     </Router>
 );

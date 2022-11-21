@@ -19,8 +19,8 @@ function FilmResult() {
     const {checkedBored} = useContext(QuestionTwoContext);
     const {changeMood} = useContext(QuestionThreeContext);
     const {keepMood} = useContext(QuestionThreeContext);
-//
-//
+
+
 //     function chooseGenre(genre) {
 //         switch (genre) {
 //             case checkedGreat && keepMood :
@@ -71,6 +71,7 @@ function FilmResult() {
 
   return (
     <div>
+
         <Drama />
 
     </div>

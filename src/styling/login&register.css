@@ -1,0 +1,80 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.login-page > img {
+    margin-bottom: 30px;
+}
+
+.buttons-in-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+
+}
+.buttons-in-form > button {
+    background: #CBCAFF;
+    border: 2px solid #000000;
+    box-shadow: 3px 4px 0 #782FD6;
+    border-radius: 9px;
+    color: #000000;
+    margin: 20px;
+    padding: 7px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 17px;
+
+}
+
+.buttons-in-form > button:hover {
+    font-size: 19px;
+    width: 85px;
+}
+
+.enter-button {
+    width: 40px;
+    position: relative;
+
+}
+
+:disabled {
+    background: lavender;
+    border: 2px solid #000000;
+    box-shadow: 3px 4px 0 #782FD6;
+    border-radius: 9px;
+    color: grey;
+    margin: 5px;
+    padding: 7px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 14px;
+}
+
+.inputfield {
+    background: #CBCAFF;
+    border: 2px solid #000000;
+    border-radius: 22px;
+    color: #000000;
+    margin: 5px;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+
+.enter-button > button {
+    border: none;
+    background: none;
+    width: 50px;
+}
+
+::placeholder {
+    color: #000000;
+
+}
+
+.buttonLink {
+    color: #000000;
+    text-decoration: none;
+}

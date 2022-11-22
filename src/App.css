@@ -12,10 +12,6 @@ body {
     font-size: 14px;
 }
 
-button {
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 16px;
-}
 
 .main-logo {
     width: 200px;
@@ -28,6 +24,3 @@ ul {
 
 }
 
-.login-page {
-    font-family: 'Roboto', sans-serif;
-}

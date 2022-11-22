@@ -13,6 +13,7 @@ import {useContext} from "react";
 import "./styling/navbar-styling.css";
 import "./styling/startScreen.css"
 import "./styling/filmResult.css"
+import "./styling/login&register.css"
 import {AuthContext} from "./context/AuthContext";
 
 

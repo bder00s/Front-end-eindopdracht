@@ -12,6 +12,7 @@ import MovieHistory from "./pages/MovieHistory";
 import {useContext} from "react";
 import "./styling/navbar-styling.css";
 import "./styling/startScreen.css"
+import "./styling/filmResult.css"
 import {AuthContext} from "./context/AuthContext";
 
 

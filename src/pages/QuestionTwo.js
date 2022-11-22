@@ -9,7 +9,7 @@ import NavBar from "../Components/NavBar";
 export const QuestionTwoContext = createContext({});
 
 function QuestionTwo() {
-    // function QuestionTwoContextProvider({children}) {
+
 
         const history = useHistory();
 
@@ -42,8 +42,6 @@ function QuestionTwo() {
                 checkedShitty: checkedShitty,
                 checkedAngry: checkedAngry,
                 checkedBored: checkedBored,
-
-
 
             }
 
@@ -96,13 +94,7 @@ function QuestionTwo() {
                                 setAnswerValue={toggleCheckedBored}
                                 answerContent="Verveeld"
                             />
-                            {/*<Answer*/}
-                            {/*    answerId="sad"*/}
-                            {/*    answerName="answer-question-two"*/}
-                            {/*    answerValue={checkedSad}*/}
-                            {/*    setAnswerValue={toggleCheckedSad}*/}
-                            {/*    answerContent="Verdrietig"*/}
-                            {/*/>*/}
+
 
                             {/*//NAVIGATIE BUTTONS*/}
 

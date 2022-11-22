@@ -1,5 +1,5 @@
 import React, {createContext, useState} from "react"
-import Answer from "../Components/Answer";
+import AnswerMood from "../Components/AnswerMood";
 import {Link, useHistory} from "react-router-dom";
 import NavButton from "../Components/NavButton";
 import NavBar from "../Components/NavBar";
@@ -13,35 +13,33 @@ function QuestionTwo() {
 
         const history = useHistory();
 
-        const [checkedGreat, toggleCheckedGreat] = useState(false);
-        const [checkedLoved, toggleCheckedLoved] = useState(false);
-        const [checkedShitty, toggleCheckedShitty] = useState(false);
-        const [checkedAngry, toggleCheckedAngry] = useState(false);
-        const [checkedBored, toggleCheckedBored] = useState(false);
+        const [mood, changeMood] = useState('')
+        // const [checkedGreat, toggleCheckedGreat] = useState(false);
+        // const [checkedLoved, toggleCheckedLoved] = useState(false);
+        // const [checkedShitty, toggleCheckedShitty] = useState(false);
+        // const [checkedAngry, toggleCheckedAngry] = useState(false);
+        // const [checkedBored, toggleCheckedBored] = useState(false);
 
 
 
 
         function handleSubmitTwo(e) {
             e.preventDefault()
-
-            console.log(`Vraag 2 beantwoord.
-        Ik voel me goed: ${checkedGreat},
-        Ik voel me geliefd: ${checkedLoved},
-        Ik voel me slecht: ${checkedShitty},
-        Ik voel me boos: ${checkedAngry},
-        Ik voel me verveeld: ${checkedBored},
-       
-        `)
+            console.log(`mood is: ${mood}`)
+            console.log(e.target)
+        //     console.log(`Vraag 2 beantwoord.
+        // Ik voel me goed: ${checkedGreat},
+        // Ik voel me geliefd: ${checkedLoved},
+        // Ik voel me slecht: ${checkedShitty},
+        // Ik voel me boos: ${checkedAngry},
+        // Ik voel me verveeld: ${checkedBored},
+        //
+        // `)
             history.push("/question-three")
         }
 
             const contextData = {
-                checkedGreat: checkedGreat,
-                checkedLoved: checkedLoved,
-                checkedShitty: checkedShitty,
-                checkedAngry: checkedAngry,
-                checkedBored: checkedBored,
+                mood:mood
 
             }
 
@@ -58,40 +56,40 @@ function QuestionTwo() {
                         {/*//ANTWOORDEN*/}
 
                         <form className="question-two" onSubmit={handleSubmitTwo}>
-                            <Answer
+                            <AnswerMood
                                 answerId="great"
                                 answerName="answer-question-two"
-                                answerValue={checkedGreat}
-                                setAnswerValue={toggleCheckedGreat}
+                                answerValue={mood}
+                                setAnswerValue={changeMood}
                                 answerContent="Goed"
 
                             />
-                            <Answer
+                            <AnswerMood
                                 answerId="loved"
                                 answerName="answer-question-two"
-                                answerValue={checkedLoved}
-                                setAnswerValue={toggleCheckedLoved}
+                                answerValue={mood}
+                                setAnswerValue={changeMood}
                                 answerContent="Geliefd"
                             />
-                            <Answer
+                            <AnswerMood
                                 answerId="shitty"
                                 answerName="answer-question-two"
-                                answerValue={checkedShitty}
-                                setAnswerValue={toggleCheckedShitty}
+                                answerValue={mood}
+                                setAnswerValue={changeMood}
                                 answerContent="Slecht"
                             />
-                            <Answer
+                            <AnswerMood
                                 answerId="angry"
                                 answerName="answer-question-two"
-                                answerValue={checkedAngry}
-                                setAnswerValue={toggleCheckedAngry}
+                                answerValue={mood}
+                                setAnswerValue={changeMood}
                                 answerContent="Boos"
                             />
-                            <Answer
+                            <AnswerMood
                                 answerId="bored"
                                 answerName="answer-question-two"
-                                answerValue={checkedBored}
-                                setAnswerValue={toggleCheckedBored}
+                                answerValue={mood}
+                                setAnswerValue={changeMood}
                                 answerContent="Verveeld"
                             />
 
@@ -107,13 +105,13 @@ function QuestionTwo() {
 
                             <NavButton buttonType="submit"
                                        buttonText="Volgende"
-                                       answerValues={checkedGreat || checkedLoved || checkedShitty || checkedAngry || checkedBored }/>
+                                       answerValues={mood}/>
 
                         </form>
 
 
                     </div>
-                </QuestionTwoContext.Provider>
+                 </QuestionTwoContext.Provider>
             );
 
 

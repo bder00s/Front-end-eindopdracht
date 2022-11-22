@@ -16,11 +16,12 @@ const keyApi = process.env.REACT_APP_API_KEY
 
 
 function FilmResult() {
-    const {checkedGreat} = useContext(QuestionTwoContext);
-    const {checkedLoved} = useContext(QuestionTwoContext);
-    const {checkedShitty} = useContext(QuestionTwoContext);
-    const {checkedAngry} = useContext(QuestionTwoContext);
-    const {checkedBored} = useContext(QuestionTwoContext);
+    const {mood} = useContext(QuestionTwoContext)
+    // const {checkedGreat} = useContext(QuestionTwoContext);
+    // const {checkedLoved} = useContext(QuestionTwoContext);
+    // const {checkedShitty} = useContext(QuestionTwoContext);
+    // const {checkedAngry} = useContext(QuestionTwoContext);
+    // const {checkedBored} = useContext(QuestionTwoContext);
     const {changeMood} = useContext(QuestionThreeContext);
     const {keepMood} = useContext(QuestionThreeContext);
 
@@ -30,54 +31,58 @@ function FilmResult() {
 
     async function getMovie() {
 
+
         function movie(searchMovie) {
-            if (checkedGreat && keepMood) {
-                return searchMovie = "Kick-ass"
-            }
-            if (checkedGreat && changeMood) {
-                return searchMovie = "The place beyond the pines"
-            }
-            if (checkedLoved && keepMood) {
-                return searchMovie = "Love Actually"
-            }
-            if (checkedLoved && changeMood) {
-                return searchMovie = "Cherry"
-            }
-            if (checkedShitty && keepMood) {
-                return searchMovie = "Closer"
-            }
-            if (checkedShitty && changeMood) {
-                return searchMovie = "The Truman show"
-            }
-            if (checkedAngry && keepMood) {
-                return searchMovie = "the Northman"
-            }
-            if (checkedAngry && changeMood) {
-                return searchMovie = "School of Rock"
-            }
-            if (checkedBored && keepMood) {
-                return searchMovie = "Her"
-            }
-            if (checkedBored && changeMood) {
-                return searchMovie = "Guardians of the Galaxy"
-            }
+            console.log(`${mood} + ${keepMood} + ${changeMood} `)
         }
 
-        console.log(movie())
+        //     if (checkedGreat && keepMood) {
+        //         return searchMovie = "Kick-ass"
+        //     }
+        //     if (checkedGreat && changeMood) {
+        //         return searchMovie = "The place beyond the pines"
+        //     }
+        //     if (checkedLoved && keepMood) {
+        //         return searchMovie = "Love Actually"
+        //     }
+        //     if (checkedLoved && changeMood) {
+        //         return searchMovie = "Cherry"
+        //     }
+        //     if (checkedShitty && keepMood) {
+        //         return searchMovie = "Closer"
+        //     }
+        //     if (checkedShitty && changeMood) {
+        //         return searchMovie = "The Truman show"
+        //     }
+        //     if (checkedAngry && keepMood) {
+        //         return searchMovie = "the Northman"
+        //     }
+        //     if (checkedAngry && changeMood) {
+        //         return searchMovie = "School of Rock"
+        //     }
+        //     if (checkedBored && keepMood) {
+        //         return searchMovie = "Her"
+        //     }
+        //     if (checkedBored && changeMood) {
+        //         return searchMovie = "Guardians of the Galaxy"
+        //     }
+        //     return "Bonne";
 
-            try {
-                const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${movie()}`);
-                console.log(result.data);
-                setMovieResult(result.data);
+        movie()
+    }
+    getMovie()
 
 
-            } catch (e) {
-                console.error(e);
-            }
 
-        }
-
-        getMovie()
+            // try {
+            //     const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${ }`);
+            //     console.log(result.data);
+            //     setMovieResult(result.data);
+            //
+            //
+            // } catch (e) {
+            //     console.error(e);
+            // }
 
             }, []);
 

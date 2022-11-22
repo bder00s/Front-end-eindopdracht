@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Answer({answerId, answerName, answerValue, setAnswerValue, answerContent}){
+function AnswerMood({answerId, answerName, answerValue, setAnswerValue, answerContent}){
     return (
         <div>
             <label id={answerId}>
@@ -8,13 +8,14 @@ function Answer({answerId, answerName, answerValue, setAnswerValue, answerConten
                        name={answerName}
                        value={answerValue}
                        id={answerId}
-                       onChange={() => {setAnswerValue(!answerValue)
-                console.log("test answer.js")}}
-
-                    />
+                       onChange={() => {
+                           setAnswerValue(answerId)
+                          console.log("test")
+                       }}
+                />
                 {answerContent}</label>
         </div>
     );
 };
 
-export default Answer;
+export default AnswerMood;

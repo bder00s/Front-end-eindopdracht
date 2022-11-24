@@ -1,9 +1,7 @@
 import React from 'react';
 
 
-
-
-function NavButton({buttonType,buttonText, answerValues}) {
+function NavButton({buttonType, buttonText, answerValues}) {
     return (
         <div>
             <button
@@ -11,7 +9,7 @@ function NavButton({buttonType,buttonText, answerValues}) {
                 disabled={!answerValues && (buttonText === "Volgende" || buttonText === "Geef me een film!")}
             >
                 {buttonText}
-        </button>
+            </button>
         </div>
     );
 };

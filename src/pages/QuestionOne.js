@@ -58,8 +58,9 @@ function QuestionOne() {
                     />
                 </Link>
 
-                <NavButton buttonType="submit"
-                           buttonText="Volgende"
+                <NavButton
+                    buttonType="submit"
+                    buttonText="Volgende"
                     answerValues={checkedGood || checkedBad}
                 />
 

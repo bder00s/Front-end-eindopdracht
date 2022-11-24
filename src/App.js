@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {createContext, useState} from "react";
 import "./App.css";
 import {Switch, Route, Redirect} from "react-router-dom";
 import StartScreen from "./pages/StartScreen";
@@ -17,33 +17,42 @@ import "./styling/login&register.css"
 import {AuthContext} from "./context/AuthContext";
 
 
-function App() {
+export const appContext = createContext({});
 
-    function PrivateRoute({ children, isAuth, ...rest}) {
+function App() {
+    // Question 2
+    const [userMood, changeUserMood] = useState("")
+
+    // Question 3
+    const [changeMood, toggleChangeMood] = useState("no");
+
+    function PrivateRoute({children, isAuth, ...rest}) {
         return (
             <Route {...rest}>
-                {isAuth ? children : <Redirect exact to="/" />}
+                {isAuth ? children : <Redirect exact to="/"/>}
             </Route>
         )
     }
 
 
-const {isAuth} = useContext(AuthContext);
-  return (
+    const {isAuth} = useContext(AuthContext);
 
-    <div className="App">
-          <Switch>
-              <Route exact path="/"> <Home/> </Route>
-              <Route path="/register"> <Register/> </Route>
-              <Route path="/start"> { isAuth.isAuth ?  <StartScreen/> : <Redirect to="/" />} </Route>
-              <PrivateRoute path="/question-one" isAuth={isAuth}><QuestionOne/></PrivateRoute>
-              <PrivateRoute path="/question-two" isAuth={isAuth}> <QuestionTwo/> </PrivateRoute>
-              <PrivateRoute path="/question-three" isAuth={isAuth}> <QuestionThree/> </PrivateRoute>
-              <PrivateRoute path="/result" isAuth={isAuth}> <FilmResult/> </PrivateRoute>
-              <PrivateRoute path="/movie-history" isAuth={isAuth}> <MovieHistory/> </PrivateRoute>
-          </Switch>
-    </div>
-  );
+    return (
+        <div className="App">
+            <appContext.Provider value={{userMood, changeUserMood, changeMood, toggleChangeMood}}>
+                <Switch>
+                    <Route exact path="/"> <Home/> </Route>
+                    <Route path="/register"> <Register/> </Route>
+                    <Route path="/start"> {isAuth.isAuth ? <StartScreen/> : <Redirect to="/"/>} </Route>
+                    <PrivateRoute path="/question-one" isAuth={isAuth}><QuestionOne/></PrivateRoute>
+                    <PrivateRoute path="/question-two" isAuth={isAuth}> <QuestionTwo/> </PrivateRoute>
+                    <PrivateRoute path="/question-three" isAuth={isAuth}> <QuestionThree/> </PrivateRoute>
+                    <PrivateRoute path="/result" isAuth={isAuth}> <FilmResult/> </PrivateRoute>
+                    <PrivateRoute path="/movie-history" isAuth={isAuth}> <MovieHistory/> </PrivateRoute>
+                </Switch>
+            </appContext.Provider>
+        </div>
+    );
 }
 
 export default App;

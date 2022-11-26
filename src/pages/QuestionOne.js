@@ -7,47 +7,71 @@ import header from "../assets/headertext.svg";
 import NavBar from "../Components/NavBar";
 
 function QuestionOne() {
-    const [checkedGood, toggleCheckedGood] = useState(false);
-    const [checkedBad, toggleCheckedBad] = useState(false);
+    const [userDay, setUserDay] = useState('');
 
     const history = useHistory();
 
     function handleSubmitOne(e) {
         e.preventDefault()
-        console.log(`Vraag 1 beantwoord.
-        Ik voel me goed ${checkedGood}
-        Ik voel me slecht ${checkedBad}`)
+        // console.log(`Vraag 1 beantwoord.
+        // // Ik voel me goed ${userDay}
+        // // Ik voel me slecht ${userDay}`)
         history.push("/question-two")
     }
+
+    function onChangeQuestion1(e) {
+        e.preventDefault();
+        console.log(`Question 1 selection = ${e.target.value}`);
+        setUserDay(e.target.value)
+    }
+
 
     return (
         <div className="question-one">
             <header>
                 <NavBar/>
             </header>
-            <h3>Vraag 1</h3>
-            <p>Hoe is je dag?</p>
+            <div className="question">
+                <h3>Vraag 1</h3>
+                <p>Hoe is je dag?</p>
+            </div>
 
             {/*//ANTWOORDEN*/}
 
-            <form className="question-one"
+            <form className="question-one-form"
                   onSubmit={handleSubmitOne}>
-                <Answer
-                    answerId="good"
-                    answerName="answer-question-one"
-                    answerValue={checkedGood}
-                    answerContent="😀"
-                    setAnswerValue={toggleCheckedGood}
 
-                />
 
-                <Answer
-                    answerId="bad"
-                    answerName="answer-question-one"
-                    answerValue={checkedBad}
-                    answerContent="☹️"
-                    setAnswerValue={toggleCheckedBad}
-                />
+                <div className="radio">
+                    <label>
+                        <input
+                            type="radio"
+                            value="good-day"
+                            checked={userDay === "good-day"}
+                            onChange={onChangeQuestion1}/>
+                        😀
+                    </label>
+                </div>
+
+
+                <div className="radio">
+                    <label>
+                        <input
+                            type="radio"
+                            value="bad-day"
+                            checked={userDay === "bad-day"}
+                            onChange={onChangeQuestion1}/>
+                        ️️☹️
+                    </label>
+                </div>
+
+                {/*<Answer*/}
+                {/*    answerId="bad"*/}
+                {/*    answerName="answer-question-one"*/}
+                {/*    answerValue={checkedBad}*/}
+                {/*    answerContent="☹"*/}
+                {/*    setAnswerValue={toggleCheckedBad}*/}
+                {/*/>*/}
 
                 {/*//NAVIGATIE BUTTONS*/}
 
@@ -61,7 +85,7 @@ function QuestionOne() {
                 <NavButton
                     buttonType="submit"
                     buttonText="Volgende"
-                    answerValues={checkedGood || checkedBad}
+                    answerValues={true}
                 />
 
             </form>

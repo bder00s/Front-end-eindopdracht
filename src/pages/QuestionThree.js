@@ -5,7 +5,7 @@ import NavButton from "../Components/NavButton";
 import NavBar from "../Components/NavBar";
 import {appContext} from "../App";
 
-export const QuestionThreeContext = createContext({});
+// export const QuestionThreeContext = createContext({});
 
 function QuestionThree() {
     const history = useHistory();
@@ -24,7 +24,7 @@ function QuestionThree() {
 
     function onChangeQuestion3(e) {
         e.preventDefault();
-        console.log(`Event value = ${e.target.value}`)
+        console.log(`Question 3 - change mood? = ${e.target.value}`)
         toggleChangeMood(e.target.value)
     }
 
@@ -33,8 +33,10 @@ function QuestionThree() {
             <header>
                 <NavBar/>
             </header>
+            <div className="question">
             <h3>Vraag 3</h3>
             <p>Wil je hier verandering in brengen?</p>
+            </div>
 
             {/*//ANTWOORDEN*/}
 

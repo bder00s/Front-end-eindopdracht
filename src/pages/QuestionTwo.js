@@ -12,6 +12,8 @@ function QuestionTwo() {
 
     function handleSubmitTwo(e) {
         e.preventDefault()
+        console.log(`Vraag 2 beantwoord:
+        Mijn mood is: ${userMood}`)
         history.push("/question-three")
     }
 
@@ -28,48 +30,14 @@ function QuestionTwo() {
             <header>
                 <NavBar/>
             </header>
+            <div className="question">
             <h3>Vraag 2</h3>
             <p>Hoe voel je je?</p>
+            </div>
 
             {/*//ANTWOORDEN*/}
 
             <form className="question-two" onSubmit={handleSubmitTwo}>
-                {/*<AnswerMood*/}
-                {/*    answerId="great"*/}
-                {/*    answerName="answer-question-two"*/}
-                {/*    answerValue={userMood}*/}
-                {/*    setAnswerValue={changeUserMood}*/}
-                {/*    answerContent="Goed"*/}
-
-                {/*/>*/}
-                {/*<AnswerMood*/}
-                {/*    answerId="loved"*/}
-                {/*    answerName="answer-question-two"*/}
-                {/*    answerValue={userMood}*/}
-                {/*    setAnswerValue={changeUserMood}*/}
-                {/*    answerContent="Geliefd"*/}
-                {/*/>*/}
-                {/*<AnswerMood*/}
-                {/*    answerId="shitty"*/}
-                {/*    answerName="answer-question-two"*/}
-                {/*    answerValue={userMood}*/}
-                {/*    setAnswerValue={changeUserMood}*/}
-                {/*    answerContent="Slecht"*/}
-                {/*/>*/}
-                {/*<AnswerMood*/}
-                {/*    answerId="angry"*/}
-                {/*    answerName="answer-question-two"*/}
-                {/*    answerValue={userMood}*/}
-                {/*    setAnswerValue={changeUserMood}*/}
-                {/*    answerContent="Boos"*/}
-                {/*/>*/}
-                {/*<AnswerMood*/}
-                {/*    answerId="bored"*/}
-                {/*    answerName="answer-question-two"*/}
-                {/*    answerValue={userMood}*/}
-                {/*    setAnswerValue={changeUserMood}*/}
-                {/*    answerContent="Verveeld"*/}
-                {/*/>*/}
 
 
                 <div className="radio">
@@ -80,7 +48,7 @@ function QuestionTwo() {
                             checked={userMood === "good"}
                             onChange={onChangeQuestion2}
                         />
-                        Goed
+                         Goed
                     </label>
                 </div>
                 <div className="radio">
@@ -91,7 +59,7 @@ function QuestionTwo() {
                             checked={userMood === "loved"}
                             onChange={onChangeQuestion2}
                         />
-                        Geliefd
+                         Geliefd
                     </label>
                 </div>
                 <div className="radio">

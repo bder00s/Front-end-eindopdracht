@@ -22,52 +22,52 @@ function FilmResult() {
 
     const [movieResult, setMovieResult] = useState('')
 
-    // useEffect(() => {
+    useEffect(() => {
 
     function questionData() {
         console.log(`UserMood = ${userMood}, ChangeMood = ${changeMood}`)
     }
 
     questionData()
+    //
+    // // switch (movieName) {
+    //     case (userMood === "good" && changeMood === "no"):
+    //         return "The Truman Show";
+    //     case (userMood === "good" && changeMood === "yes"):
+    //         return "The place beyond the pines";
+    //     case (userMood === "loved" && changeMood === "no"):
+    //         return "Love Actually";
+    //     case (userMood === "loved" && changeMood === "yes"):
+    //         return "Cherry";
+    //     case (userMood === "shitty" && changeMood === "no"):
+    //         return "Closer";
+    //     case (userMood === "shitty" && changeMood === "yes"):
+    //         return "Kick-ass";
+    //     case (userMood === "angry" && changeMood === "no"):
+    //         return "The Northman";
+    //     case (userMood === "angry" && changeMood === "yes"):
+    //         return "School of Rock";
+    //     case (userMood === "bored" && changeMood === "no"):
+    //         return "Her";
+    //     case (userMood === "bored" && changeMood === "yes"):
+    //         return "Baby Driver"
+    //     default:
+    //         return "Geen film gevonden"
+    // }
 
-    switch (movieName) {
-        case (userMood === "good" && changeMood === "no"):
-            return "The Truman Show";
-        case (userMood === "good" && changeMood === "yes"):
-            return "The place beyond the pines";
-        case (userMood === "loved" && changeMood === "no"):
-            return "Love Actually";
-        case (userMood === "loved" && changeMood === "yes"):
-            return "Cherry";
-        case (userMood === "shitty" && changeMood === "no"):
-            return "Closer";
-        case (userMood === "shitty" && changeMood === "yes"):
-            return "Kick-ass";
-        case (userMood === "angry" && changeMood === "no"):
-            return "The Northman";
-        case (userMood === "angry" && changeMood === "yes"):
-            return "School of Rock";
-        case (userMood === "bored" && changeMood === "no"):
-            return "Her";
-        case (userMood === "bored" && changeMood === "yes"):
-            return "Baby Driver"
-        default:
-            return "Geen film gevonden"
-    }
-
-    async function getMovie() {
-        try {
-            const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${movieName}`);
-            console.log(result.data);
-            setMovieResult(result.data);
-        } catch (e) {
-            console.error(e);
-        }
-
-    }
-
-
-    getMovie()
+    // async function getMovie() {
+    //     try {
+    //         const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${movieName}`);
+    //         console.log(result.data);
+    //         setMovieResult(result.data);
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+    //
+    // }
+    //
+    //
+    // getMovie()
 
 
     },[]);

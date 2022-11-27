@@ -16,81 +16,98 @@ import {appContext} from "../App";
 const keyApi = process.env.REACT_APP_API_KEY
 
 
-function FilmResult() {
 
-    const {userMood, changeMood} = useContext(appContext);
+    function FilmResult() {
 
-    const [movieResult, setMovieResult] = useState('')
+        const {userMood, changeMood} = useContext(appContext);
 
-    useEffect(() => {
+        const [movieResult, setMovieResult] = useState('');
 
-    function questionData() {
-        console.log(`UserMood = ${userMood}, ChangeMood = ${changeMood}`)
+        useEffect(() => {
+
+            function questionData() {
+                console.log(`UserMood = ${userMood}, ChangeMood = ${changeMood}`)
+            }
+
+            questionData()
+
+            function getMovieName (userMood, changeMood) {
+                if (changeMood === "no") {
+                    switch (userMood) {
+                        case "good":
+                            return "The Truman Show";
+                        case "loved":
+                            return "Love Actually";
+                        case "shitty":
+                            return "Closer";
+                        case "angry":
+                            return "The Northman";
+                        case "bored":
+                            return "Her";
+                        default:
+                            return "Geen film gevonden"
+
+                    }
+
+                } else if (changeMood === "yes") {
+                    switch (userMood) {
+                        case "good":
+                            return "The place beyond the pines";
+                        case "loved":
+                            return "Cherry";
+                        case "shitty":
+                            return "Kick-Ass";
+                        case "angry":
+                            return "School of Rock"
+                        case "bored":
+                            return "Baby Driver"
+                        default:
+                            return "Geen film gevonden"
+
+                    }
+                }
+            }
+            ;
+
+            async function getMovie() {
+                try {
+                    const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${getMovieName(userMood,changeMood)}`);
+                    console.log(result.data);
+                    setMovieResult(result.data);
+                } catch (e) {
+                    console.error(e);
+                }
+
+            }
+
+            getMovie()
+
+
+        }, [userMood, changeMood]);
+
+        return (
+            <div>
+                <NavBar/>
+                <div className="result">
+                    <h1>{movieResult.Title}</h1>
+                    <h2>{movieResult.Year}</h2>
+                    <h3>Rated {movieResult.imdbRating} on IMDB!</h3>
+                    <img src={movieResult.Poster} alt="movieposter" width="100"/>
+                </div>
+
+                <article className="filmResultTools">
+
+                    <img src={share} alt="share result" width="30"/>
+
+                    <Link to="/start"> <img src={retry} alt="try again" width="30"/> </Link>
+
+                </article>
+            </div>
+        );
+
     }
 
-    questionData()
-    //
-    // // switch (movieName) {
-    //     case (userMood === "good" && changeMood === "no"):
-    //         return "The Truman Show";
-    //     case (userMood === "good" && changeMood === "yes"):
-    //         return "The place beyond the pines";
-    //     case (userMood === "loved" && changeMood === "no"):
-    //         return "Love Actually";
-    //     case (userMood === "loved" && changeMood === "yes"):
-    //         return "Cherry";
-    //     case (userMood === "shitty" && changeMood === "no"):
-    //         return "Closer";
-    //     case (userMood === "shitty" && changeMood === "yes"):
-    //         return "Kick-ass";
-    //     case (userMood === "angry" && changeMood === "no"):
-    //         return "The Northman";
-    //     case (userMood === "angry" && changeMood === "yes"):
-    //         return "School of Rock";
-    //     case (userMood === "bored" && changeMood === "no"):
-    //         return "Her";
-    //     case (userMood === "bored" && changeMood === "yes"):
-    //         return "Baby Driver"
-    //     default:
-    //         return "Geen film gevonden"
-    // }
-
-    // async function getMovie() {
-    //     try {
-    //         const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${movieName}`);
-    //         console.log(result.data);
-    //         setMovieResult(result.data);
-    //     } catch (e) {
-    //         console.error(e);
-    //     }
-    //
-    // }
-    //
-    //
-    // getMovie()
+    export default FilmResult
 
 
-    },[]);
-
-    return (
-        <div>
-            <NavBar/>
-            <div className="result">
-                <h1>{movieResult.Title}</h1>
-                <h2>{movieResult.Year}</h2>
-                <h3>Rated {movieResult.imdbRating} on IMDB!</h3>
-                <img src={movieResult.Poster} alt="movieposter" width="100"/>
-            </div>
-
-            <article className="filmResultTools">
-
-                <img src={share} alt="share result" width="30"/>
-
-                <Link to="/start"> <img src={retry} alt="try again" width="30"/> </Link>
-
-            </article>
-        </div>
-    );
-}
-     export default FilmResult
 

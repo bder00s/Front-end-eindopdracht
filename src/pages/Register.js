@@ -23,7 +23,7 @@ function Register() {
 
     return (
         <>
-            {/*<NavBar/>*/}
+
             <div className="register">
                 {/*//HEADER*/}
                 <img className="register-header" src={register} alt="register text"/>
@@ -33,9 +33,10 @@ function Register() {
                 <form
                     className="register-page"
                     onSubmit={handleSubmitRegister}>
+                    <p>Geef een emailadres op:</p>
                     <Inputfield
                         fieldId="email-register"
-                        fieldText="Geef een emailadres op: "
+                        // fieldText="Geef een emailadres op: "
                         fieldType="text"
                         fieldName="email-register"
                         fieldPlaceholder="Emailadres"
@@ -43,23 +44,27 @@ function Register() {
                         setFieldContent={setRegisterEmail}
                     />
 
+                    <p>Geef een wachtwoord op</p>
                     <Inputfield
                         fieldId="password-register"
-                        fieldText="Geef een wachtwoord op: "
+                        // fieldText="Geef een wachtwoord op: "
                         fieldType="password"
                         fieldName="password-register"
                         fieldPlaceholder="Wachtwoord"
                         fieldContent={registerPassword}
                         setFieldContent={setRegisterPassword}
                     />
-                    <button type="button"
-                            onClick={() => history.push("/")}>
-                        Terug
-                    </button>
-                    <button type="submit"
-                            onClick={handleSubmitRegister}>
-                        Registreer!
-                    </button>
+
+                    <div className="register-navigation">
+                        <button type="button"
+                                onClick={() => history.push("/")}>
+                            Terug
+                        </button>
+                        <button type="submit"
+                                onClick={handleSubmitRegister}>
+                            Registreer!
+                        </button>
+                    </div>
                 </form>
 
             </div>

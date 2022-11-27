@@ -38,7 +38,7 @@ function QuestionOne() {
 
             {/*//ANTWOORDEN*/}
 
-            <form className="question-one-form"  onSubmit={handleSubmitOne}>
+            <form className="question-one-form" onSubmit={handleSubmitOne}>
 
                 <div className="radio">
                     <label>
@@ -72,19 +72,20 @@ function QuestionOne() {
                 {/*/>*/}
 
                 {/*//NAVIGATIE BUTTONS*/}
+                <div className="nav-button-container">
+                    <Link to="/start">
+                        <NavButton
+                            buttonType="button"
+                            buttonText="Vorige"
+                        />
+                    </Link>
 
-                <Link to="/start">
                     <NavButton
-                        buttonType="button"
-                        buttonText="Vorige"
+                        buttonType="submit"
+                        buttonText="Volgende"
+                        answerValues={userDay}
                     />
-                </Link>
-
-                <NavButton
-                    buttonType="submit"
-                    buttonText="Volgende"
-                    answerValues={userDay}
-                />
+                </div>
 
             </form>
 

@@ -70,14 +70,15 @@ function Home({toggleAuth}) {
                     setFieldContent={setLoginPassword}
                 />
                 <div className="buttons-in-form">
+
                 <button
                     onClick={handleSubmitLogin}
                     className="login-button"
                     type="submit"
-                    disabled={!loginPassword && !loginEmail}>
+                    disabled={loginPassword === "" && loginEmail === ""}>
                     Login!
                 </button>
-                    <img src={enter} className="enter-button" alt="login"/>
+                    {/*<img src={enter} className="enter-button" alt="login"/>*/}
 
                 {/*LINK NAAR REGISTRATIEPAGINA*/}
 

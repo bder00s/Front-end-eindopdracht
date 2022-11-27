@@ -3,11 +3,11 @@ import React, {useContext, useState} from "react";
 import hamburger from '../assets/Hamburger.svg'
 import moviehistoryButton from '../assets/moviehistory.svg'
 import loginLogout from '../assets/login.svg'
+import homeEmpty from "../assets/HomeButtonUnfilled.svg";
 import {Link} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext";
 import {useHistory} from "react-router-dom";
-import homeIcon from "../assets/home.svg";
-import homeEmpty from "../assets/HomeButtonUnfilled.svg";
+
 
 const Hamburger = () => {
     const history = useHistory();

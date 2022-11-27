@@ -20,23 +20,11 @@
     margin: 5px;
 }
 
-.history-icon, .login-icon, .home-iconE > li {
+.history-icon, .login-icon, .home-iconE {
     width: 30px;
     text-align: center;
-    margin: 7px;
+    margin: 10px 0 0 0;
 }
-
-/*.login-icon {*/
-/*    width: 30px;*/
-/*    text-align: center;*/
-/*    margin: 5px;*/
-/*}*/
-
-/*.home-iconE {*/
-/*    width: 30px;*/
-/*    text-align: center;*/
-/*    margin:5px ;*/
-/*}*/
 
 .app-header {
     width: 150px;
@@ -97,7 +85,6 @@
 .menubar {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     margin: 20px;
     text-align: center;
 }

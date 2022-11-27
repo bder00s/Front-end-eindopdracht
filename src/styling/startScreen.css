@@ -18,5 +18,13 @@
 }
 
 .startPageHeader > .main-logo {
-    margin: 40px 0 0 0;
+    margin: 35px 0 0 0;
 }
+
+.startPageHeader  .menu {
+    position: absolute;
+    right: 250px;
+    top: 120px;
+
+}
+

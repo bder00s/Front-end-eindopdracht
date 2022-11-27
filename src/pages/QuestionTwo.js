@@ -39,7 +39,6 @@ function QuestionTwo() {
 
             <form className="question-two" onSubmit={handleSubmitTwo}>
 
-
                 <div className="radio">
                     <label>
                         <input

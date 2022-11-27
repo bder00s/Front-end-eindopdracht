@@ -21,11 +21,14 @@ import {AuthContext} from "./context/AuthContext";
 export const appContext = createContext({});
 
 function App() {
+    // Question 1
+    const [userDay, changeUserDay] = useState("")
+
     // Question 2
     const [userMood, changeUserMood] = useState("")
 
     // Question 3
-    const [changeMood, toggleChangeMood] = useState("no");
+    const [changeMood, toggleChangeMood] = useState("");
 
     function PrivateRoute({children, isAuth, ...rest}) {
         return (
@@ -40,7 +43,7 @@ function App() {
 
     return (
         <div className="App">
-            <appContext.Provider value={{userMood, changeUserMood, changeMood, toggleChangeMood}}>
+            <appContext.Provider value={{userDay, changeUserDay, userMood, changeUserMood, changeMood, toggleChangeMood}}>
                 <Switch>
                     <Route exact path="/"> <Home/> </Route>
                     <Route path="/register"> <Register/> </Route>

@@ -1,120 +1,119 @@
-import React, {createContext, useState} from "react"
-import Answer from "../Components/Answer";
+import React, {createContext, useState, useContext} from "react"
 import {Link, useHistory} from "react-router-dom";
 import NavButton from "../Components/NavButton";
 import NavBar from "../Components/NavBar";
+import {appContext} from "../App";
 
-
-
-export const QuestionTwoContext = createContext({});
 
 function QuestionTwo() {
+    const history = useHistory();
+
+    const {userMood, changeUserMood} = useContext(appContext);
+
+    function handleSubmitTwo(e) {
+        e.preventDefault()
+        console.log(`Vraag 2 beantwoord:
+        Huidige mood van gebruiker is: ${userMood}`)
+        history.push("/question-three")
+    }
+
+    function onChangeQuestion2(e) {
+        e.preventDefault();
+        console.log(`Question 2 selection: ${e.target.value}`);
+        changeUserMood(e.target.value)
+    }
+
+    return (
+
+        <div className="question-two">
+
+            <header>
+                <NavBar/>
+            </header>
+            <div className="question">
+            <h3>Vraag 2</h3>
+            <p>Hoe voel je je?</p>
+            </div>
+
+            {/*//ANTWOORDEN*/}
+
+            <form className="question-two" onSubmit={handleSubmitTwo}>
 
 
-        const history = useHistory();
+                <div className="radio">
+                    <label>
+                        <input
+                            type="radio"
+                            value="good"
+                            checked={userMood === "good"}
+                            onChange={onChangeQuestion2}
+                        />
+                         Goed
+                    </label>
+                </div>
+                <div className="radio">
+                    <label>
+                        <input
+                            type="radio"
+                            value="loved"
+                            checked={userMood === "loved"}
+                            onChange={onChangeQuestion2}
+                        />
+                         Geliefd
+                    </label>
+                </div>
+                <div className="radio">
+                    <label>
+                        <input
+                            type="radio"
+                            value="shitty"
+                            checked={userMood === "shitty"}
+                            onChange={onChangeQuestion2}
+                        />
+                        Slecht
+                    </label>
+                </div>
+                <div className="radio">
+                    <label>
+                        <input
+                            type="radio"
+                            value="angry"
+                            checked={userMood === "angry"}
+                            onChange={onChangeQuestion2}
+                        />
+                        Boos
+                    </label>
+                </div>
+                <div className="radio">
+                    <label>
+                        <input
+                            type="radio"
+                            value="bored"
+                            checked={userMood === "bored"}
+                            onChange={onChangeQuestion2}
+                        />
+                        Verveeld
+                    </label>
+                </div>
 
-        const [checkedGreat, toggleCheckedGreat] = useState(false);
-        const [checkedLoved, toggleCheckedLoved] = useState(false);
-        const [checkedShitty, toggleCheckedShitty] = useState(false);
-        const [checkedAngry, toggleCheckedAngry] = useState(false);
-        const [checkedBored, toggleCheckedBored] = useState(false);
+                {/*//NAVIGATIE BUTTONS*/}
 
+                <Link to="/question-one">
+                    <NavButton
+                        buttonType="button"
+                        buttonText="Vorige"
+                    />
+                </Link>
 
+                <NavButton buttonType="submit"
+                           buttonText="Volgende"
+                           answerValues={userMood}/>
 
-
-        function handleSubmitTwo(e) {
-            e.preventDefault()
-
-            console.log(`Vraag 2 beantwoord.
-        Ik voel me goed: ${checkedGreat},
-        Ik voel me geliefd: ${checkedLoved},
-        Ik voel me slecht: ${checkedShitty},
-        Ik voel me boos: ${checkedAngry},
-        Ik voel me verveeld: ${checkedBored},
-       
-        `)
-            history.push("/question-three")
-        }
-
-            const contextData = {
-                checkedGreat: checkedGreat,
-                checkedLoved: checkedLoved,
-                checkedShitty: checkedShitty,
-                checkedAngry: checkedAngry,
-                checkedBored: checkedBored,
-
-            }
-
-            return (
-                <QuestionTwoContext.Provider value={contextData}>
-                    <div className="question-two">
-
-                        <header>
-                            <NavBar/>
-                        </header>
-                        <h3>Vraag 2</h3>
-                        <p>Hoe voel je je?</p>
-
-                        {/*//ANTWOORDEN*/}
-
-                        <form className="question-two" onSubmit={handleSubmitTwo}>
-                            <Answer
-                                answerId="great"
-                                answerName="answer-question-two"
-                                answerValue={checkedGreat}
-                                setAnswerValue={toggleCheckedGreat}
-                                answerContent="Goed"
-
-                            />
-                            <Answer
-                                answerId="loved"
-                                answerName="answer-question-two"
-                                answerValue={checkedLoved}
-                                setAnswerValue={toggleCheckedLoved}
-                                answerContent="Geliefd"
-                            />
-                            <Answer
-                                answerId="shitty"
-                                answerName="answer-question-two"
-                                answerValue={checkedShitty}
-                                setAnswerValue={toggleCheckedShitty}
-                                answerContent="Slecht"
-                            />
-                            <Answer
-                                answerId="angry"
-                                answerName="answer-question-two"
-                                answerValue={checkedAngry}
-                                setAnswerValue={toggleCheckedAngry}
-                                answerContent="Boos"
-                            />
-                            <Answer
-                                answerId="bored"
-                                answerName="answer-question-two"
-                                answerValue={checkedBored}
-                                setAnswerValue={toggleCheckedBored}
-                                answerContent="Verveeld"
-                            />
+            </form>
 
 
-                            {/*//NAVIGATIE BUTTONS*/}
-
-                            <Link to="/question-one">
-                                <NavButton
-                                    buttonType="button"
-                                    buttonText="Vorige"
-                                />
-                            </Link>
-
-                            <NavButton buttonType="submit"
-                                       buttonText="Volgende"
-                                       answerValues={checkedGreat || checkedLoved || checkedShitty || checkedAngry || checkedBored }/>
-
-                        </form>
-
-
-                    </div>
-                </QuestionTwoContext.Provider>
-            );
+        </div>
+    );
 
 
 }

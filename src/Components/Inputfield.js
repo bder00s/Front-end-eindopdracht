@@ -7,6 +7,7 @@ function Inputfield({fieldId, fieldType, fieldPlaceholder, fieldName, fieldText,
             <label id={fieldId}>
                 {fieldText}
                 <input
+                    className="inputfield"
                     type={fieldType}
                     name={fieldName}
                     placeholder={fieldPlaceholder}

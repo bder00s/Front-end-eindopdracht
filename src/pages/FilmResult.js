@@ -2,10 +2,11 @@ import React, {useContext, useEffect, useState} from "react"
 import axios from "axios";
 import share from "../assets/share.svg"
 import retry from "../assets/test.png"
-import {QuestionTwoContext} from "./QuestionTwo";
-import {QuestionThreeContext} from "./QuestionThree";
+// import {QuestionTwoContext} from "./QuestionTwo";
+// import {QuestionThreeContext} from "./QuestionThree";
 import NavBar from "../Components/NavBar";
 import {Link} from "react-router-dom";
+import {appContext} from "../App";
 
 
 //https://www.cluemediator.com/convert-html-element-or-document-into-image-in-react
@@ -15,96 +16,99 @@ import {Link} from "react-router-dom";
 const keyApi = process.env.REACT_APP_API_KEY
 
 
-function FilmResult() {
-    const {checkedGreat} = useContext(QuestionTwoContext);
-    const {checkedLoved} = useContext(QuestionTwoContext);
-    const {checkedShitty} = useContext(QuestionTwoContext);
-    const {checkedAngry} = useContext(QuestionTwoContext);
-    const {checkedBored} = useContext(QuestionTwoContext);
-    const {changeMood} = useContext(QuestionThreeContext);
-    const {keepMood} = useContext(QuestionThreeContext);
 
-    const [movieResult, setMovieResult] = useState('')
+    function FilmResult() {
 
-    useEffect(() => {
+        const {userMood, changeMood} = useContext(appContext);
 
-    async function getMovie() {
+        const [movieResult, setMovieResult] = useState('');
 
-        function movie(searchMovie) {
-            if (checkedGreat && keepMood) {
-                return searchMovie = "Kick-ass"
-            }
-            if (checkedGreat && changeMood) {
-                return searchMovie = "The place beyond the pines"
-            }
-            if (checkedLoved && keepMood) {
-                return searchMovie = "Love Actually"
-            }
-            if (checkedLoved && changeMood) {
-                return searchMovie = "Cherry"
-            }
-            if (checkedShitty && keepMood) {
-                return searchMovie = "Closer"
-            }
-            if (checkedShitty && changeMood) {
-                return searchMovie = "The Truman show"
-            }
-            if (checkedAngry && keepMood) {
-                return searchMovie = "the Northman"
-            }
-            if (checkedAngry && changeMood) {
-                return searchMovie = "School of Rock"
-            }
-            if (checkedBored && keepMood) {
-                return searchMovie = "Her"
-            }
-            if (checkedBored && changeMood) {
-                return searchMovie = "Guardians of the Galaxy"
-            }
-        }
+        useEffect(() => {
 
-        console.log(movie())
-
-            try {
-                const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${movie()}`);
-                console.log(result.data);
-                setMovieResult(result.data);
-
-
-            } catch (e) {
-                console.error(e);
+            function questionData() {
+                console.log(`UserMood = ${userMood}, ChangeMood = ${changeMood}`)
             }
 
-        }
+            questionData()
 
-        getMovie()
+            function getMovieName (userMood, changeMood) {
+                if (changeMood === "no") {
+                    switch (userMood) {
+                        case "good":
+                            return "The Truman Show";
+                        case "loved":
+                            return "Love Actually";
+                        case "shitty":
+                            return "Closer";
+                        case "angry":
+                            return "The Northman";
+                        case "bored":
+                            return "Her";
+                        default:
+                            return "Geen film gevonden"
 
-            }, []);
+                    }
+
+                } else if (changeMood === "yes") {
+                    switch (userMood) {
+                        case "good":
+                            return "The place beyond the pines";
+                        case "loved":
+                            return "Cherry";
+                        case "shitty":
+                            return "Kick-Ass";
+                        case "angry":
+                            return "School of Rock"
+                        case "bored":
+                            return "Baby Driver"
+                        default:
+                            return "Geen film gevonden"
+
+                    }
+                }
+            }
+            ;
+
+            async function getMovie() {
+                try {
+                    const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${getMovieName(userMood,changeMood)}`);
+                    console.log(result.data);
+                    setMovieResult(result.data);
+                } catch (e) {
+                    console.error(e);
+                    console.log("Probeer het opnieuw")
+                }
+
+            }
+
+            getMovie()
 
 
-            return (
-                    <div>
-                        <NavBar/>
-                        <div className="result">
-                            <h1>{movieResult.Title}</h1>
-                            <h2>{movieResult.Year}</h2>
-                            <h3>Rated {movieResult.imdbRating} on IMDB!</h3>
-                            <img src={movieResult.Poster} alt="movieposter" width="100"/>
-                        </div>
+        }, [userMood, changeMood]);
 
-                        <article className="filmResultTools">
+        return (
+            <div>
+                <NavBar/>
+                <div className="result">
+                    <h1>{movieResult.Title}</h1>
+                    <h2>{movieResult.Year}</h2>
+                    <h3>Rated {movieResult.imdbRating} on IMDB!</h3>
+                    <img src={movieResult.Poster} alt="movieposter" width="100"/>
+                </div>
 
-                        <img src={share} alt="share result" width="30"/>
+                <article className="filmResultTools">
 
-                            <Link to="/start">  <img src={retry} alt="try again" width="30"/> </Link>
+                    <img src={share} alt="share result" width="30"/>
 
-                        </article>
-                    </div>
-            );
+                    <Link to="/start"> <img src={retry} alt="try again" width="30"/> </Link>
+
+                </article>
+            </div>
+        );
+
+    }
+
+    export default FilmResult
 
 
 
-
-}
-
-export default FilmResult

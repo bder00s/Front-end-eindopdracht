@@ -76,6 +76,7 @@ const keyApi = process.env.REACT_APP_API_KEY
                     setMovieResult(result.data);
                 } catch (e) {
                     console.error(e);
+                    console.log("Probeer het opnieuw")
                 }
 
             }

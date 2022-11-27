@@ -13,7 +13,7 @@ function QuestionTwo() {
     function handleSubmitTwo(e) {
         e.preventDefault()
         console.log(`Vraag 2 beantwoord:
-        Mijn mood is: ${userMood}`)
+        Huidige mood van gebruiker is: ${userMood}`)
         history.push("/question-three")
     }
 

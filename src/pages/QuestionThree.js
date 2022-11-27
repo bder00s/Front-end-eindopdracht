@@ -15,10 +15,9 @@ function QuestionThree() {
 
     function handleSubmitThree(e) {
         e.preventDefault()
-        //     console.log(`Vraag 3 beantwoord.
-        // Wil mood veranderen: ${changeMood},
-        // Wil mood niet veranderen: ${keepMood}
-        // `)
+            console.log(`Vraag 3 beantwoord.
+      Wil gebruiker zijn mood veranderen? ${changeMood}
+        `)
         history.push("/result")
     }
 
@@ -52,6 +51,7 @@ function QuestionThree() {
                         Ja
                     </label>
                 </div>
+
                 <div className="radio">
                     <label>
                         <input

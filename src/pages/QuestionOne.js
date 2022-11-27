@@ -13,9 +13,8 @@ function QuestionOne() {
 
     function handleSubmitOne(e) {
         e.preventDefault()
-        // console.log(`Vraag 1 beantwoord.
-        // // Ik voel me goed ${userDay}
-        // // Ik voel me slecht ${userDay}`)
+        console.log(`Vraag 1 beantwoord.
+        Gebruiker heeft een ${userDay}`)
         history.push("/question-two")
     }
 
@@ -40,8 +39,6 @@ function QuestionOne() {
 
             <form className="question-one-form"
                   onSubmit={handleSubmitOne}>
-
-
                 <div className="radio">
                     <label>
                         <input

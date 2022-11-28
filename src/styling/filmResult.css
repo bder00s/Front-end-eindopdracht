@@ -1,34 +1,33 @@
-
 /*// FILM CARD //*/
 
 .result {
+
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    margin-top: 90px;
-    padding: 10px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    z-index: 1;
+}
 
+.result-text {
+    margin-top: 105px;
 }
 
 .result-text > h1 {
-    /*margin: 0 0 0 19px;*/
-    text-align: center;
-    padding: 8px;
     width: 100px;
+    height: 100px;
+    text-align: center;
     color: white;
     font-size: 35px;
     text-shadow: 3px 3px 2px #782FD6;
+
 }
+
 .result-text > p {
-    /*margin: 0 0 0 19px;*/
-    text-align: center;
-    padding: 8px;
     width: 100px;
+    height: 30px;
+    text-align: center;
     color: white;
-    font-size: 16px;
+    font-size: 19px;
     text-shadow: 2px 3px 2px #782FD6;
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
@@ -37,22 +36,23 @@
 
 .movie-poster {
     position: absolute;
-    top: 90px;
+    margin-top: 40px;
+    align-items: center;
     width: 205px;
-    margin: 5px;
+    height: 300px;
     z-index: -1;
     border-radius: 15px;
     mix-blend-mode: overlay;
     filter: blur(3px);
-    opacity: 1;
+    opacity: 0.7;
 }
 
 .movieposter-background {
     position: absolute;
-    top: 93px;
-    left: 536px;
-    width: 219px;
-    height: 314px;
+    margin-top: 40px;
+    align-items: center;
+    width: 205px;
+    height: 300px;
     z-index: -2;
     background: #65B1EF;
     border: 2px solid #000000;
@@ -63,11 +63,13 @@
 /*// RESULT TOOLS //*/
 
 .film-result-tools {
+    margin-top: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-top: 120px;
+    z-index: 2;
+
 
 }
 

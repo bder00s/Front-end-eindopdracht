@@ -3,6 +3,7 @@ import {Link, NavLink, useHistory} from "react-router-dom";
 import logo from "../assets/logo2.png"
 import enter from "../assets/Enter button.png"
 import Inputfield from "../Components/Inputfield";
+import axios from "axios";
 
 import {AuthContext} from "../context/AuthContext";
 
@@ -30,6 +31,7 @@ function Home({toggleAuth}) {
     }
 
     //POST REQUEST NAAR BACKEND
+
     // async function clickHandler() {
     //     try {
     //         const response = await axios.post('http://localhost:3000/login', {
@@ -41,6 +43,7 @@ function Home({toggleAuth}) {
     //     } catch (e) {
     //         console.error(e)
     //     }
+    // }
 
     return (
         <div className="login-page">
@@ -72,7 +75,7 @@ function Home({toggleAuth}) {
                 <div className="buttons-in-form">
 
                 <button
-                    onClick={handleSubmitLogin}
+                    onClick={clickHandler}
                     className="login-button"
                     type="submit"
                     disabled={loginPassword === "" && loginEmail === ""}>

@@ -3,6 +3,7 @@ import {Link, useHistory} from "react-router-dom";
 import register from "../assets/register-header.svg"
 import NavBar from "../Components/NavBar";
 import Inputfield from "../Components/Inputfield";
+import axios from "axios";
 
 
 function Register() {
@@ -20,6 +21,18 @@ function Register() {
         history.push("/");
     }
 
+    // // async function registerHandler() {
+    // //     try {
+    // //         const response = await axios.post('http://localhost:3000/login', {
+    // //             email: " ",
+    // //             password: " ",
+    // //         });
+    // //         console.log(response)
+    // //
+    // //     } catch (e) {
+    // //         console.error(e)
+    // //     }
+    // }
 
     return (
         <>

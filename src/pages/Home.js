@@ -32,18 +32,18 @@ function Home({toggleAuth}) {
 
     //POST REQUEST NAAR BACKEND
 
-    // async function clickHandler() {
-    //     try {
-    //         const response = await axios.post('http://localhost:3000/login', {
-    //             email: " ",
-    //             password: " ",
-    //         });
-    //         console.log(response)
-    //
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-    // }
+    async function clickHandler() {
+        try {
+            const response = await axios.post('http://localhost:3000/login', {
+                email: " ",
+                password: " ",
+            });
+            console.log(response)
+
+        } catch (e) {
+            console.error(e)
+        }
+    }
 
     return (
         <div className="login-page">

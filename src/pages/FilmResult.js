@@ -81,25 +81,27 @@ function FilmResult() {
                 console.log("Probeer het opnieuw")
             }
 
-            //SHARE RESULTAAT FUNCTIE
-
-            document.getElementById("shareButton").onclick = function () {
-                const shareResult = document.getElementById("filmCard");
-                html2canvas(shareResult).then((canvas) => {
-                    const base64image = canvas.toDataURL("image/png");
-                    const anchor = document.createElement("a");
-                    anchor.setAttribute("href", base64image);
-                    anchor.click();
-                    anchor.remove();
-
-                })
-            }
         }
 
         getMovie()
 
 
     }, [userMood, changeMood]);
+
+    //SHARE RESULTAAT FUNCTIE
+
+    // function shareFilmCard() {
+    //     const container = document.getElementById("filmCard");
+    //     html2canvas(container, {allowTaint: true}).then(function (canvas) {
+    //         const link = document.createElement("a");
+    //         document.body.appendChild(link);
+    //         link.download = "Film_resultaat.jpg";
+    //         link.href = canvas.toDataURL();
+    //         link.target = '_blank';
+    //         link.click();
+    //     })
+    // }
+    // shareFilmCard()
 
     return (
         <div>
@@ -115,13 +117,16 @@ function FilmResult() {
             </div>
 
             <div className="film-result-tools">
+                {/*<a href={canvas.toDataURL()} target='_blank' ></a>*/}
                 <img
                     src={share}
                     alt="share result"
                     width="30"
                     className="activeShare"
                     id="shareButton"
-                onClick={html2canvas}/>
+                    />
+
+
                 <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>
             </div>
 

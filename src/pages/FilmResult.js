@@ -100,11 +100,10 @@ const keyApi = process.env.REACT_APP_API_KEY
                 </div>
 
                 <div className="film-result-tools">
-
                     <img src={share} alt="share result" width="30" className="activeShare"/>
                     <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>
-
                 </div>
+
             </div>
         );
 

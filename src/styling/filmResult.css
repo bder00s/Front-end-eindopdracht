@@ -14,21 +14,21 @@
 }
 
 .result-text > h1 {
-    margin: 0 0 0 19px;
+    /*margin: 0 0 0 19px;*/
     text-align: center;
     padding: 8px;
     width: 100px;
     color: white;
-    font-size: 40px;
+    font-size: 35px;
     text-shadow: 3px 3px 2px #782FD6;
 }
 .result-text > p {
-    margin: 0 0 0 19px;
+    /*margin: 0 0 0 19px;*/
     text-align: center;
     padding: 8px;
     width: 100px;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     text-shadow: 2px 3px 2px #782FD6;
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
@@ -67,7 +67,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-top: 110px;
+    margin-top: 120px;
 
 }
 

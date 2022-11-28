@@ -8,11 +8,13 @@
 
 .nav-bar {
     background-color: #65B1EF;
-    border: #65B1EF solid 5px;
+    /*border: #65B1EF solid 5px;*/
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border: solid 2px #62ACE9
+
 }
 
 .home-icon {
@@ -20,23 +22,11 @@
     margin: 5px;
 }
 
-.history-icon, .login-icon, .home-iconE > li {
+.history-icon, .login-icon, .home-iconE {
     width: 30px;
     text-align: center;
-    margin: 7px;
+    margin: 10px 0 0 0;
 }
-
-/*.login-icon {*/
-/*    width: 30px;*/
-/*    text-align: center;*/
-/*    margin: 5px;*/
-/*}*/
-
-/*.home-iconE {*/
-/*    width: 30px;*/
-/*    text-align: center;*/
-/*    margin:5px ;*/
-/*}*/
 
 .app-header {
     width: 150px;
@@ -79,6 +69,7 @@
     background-color: #65B1EF;
     position: absolute;
     padding: 5px;
+
 }
 
 
@@ -97,7 +88,6 @@
 .menubar {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     margin: 20px;
     text-align: center;
 }

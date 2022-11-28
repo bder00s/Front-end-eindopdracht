@@ -1,13 +1,14 @@
-import React, {useState, createContext} from "react"
+import React, {useState, createContext, useContext} from "react"
 import {Link, useHistory} from "react-router-dom";
 import Answer from "../Components/Answer";
 import NavButton from "../Components/NavButton";
 import homeIcon from "../assets/home.svg";
 import header from "../assets/headertext.svg";
 import NavBar from "../Components/NavBar";
+import {appContext} from "../App";
 
 function QuestionOne() {
-    const [userDay, setUserDay] = useState('');
+    const {userDay, changeUserDay} = useContext(appContext);
 
     const history = useHistory();
 
@@ -21,7 +22,7 @@ function QuestionOne() {
     function onChangeQuestion1(e) {
         e.preventDefault();
         console.log(`Question 1 selection = ${e.target.value}`);
-        setUserDay(e.target.value)
+        changeUserDay(e.target.value)
     }
 
 
@@ -37,8 +38,8 @@ function QuestionOne() {
 
             {/*//ANTWOORDEN*/}
 
-            <form className="question-one-form"
-                  onSubmit={handleSubmitOne}>
+            <form className="question-one-form" onSubmit={handleSubmitOne}>
+
                 <div className="radio">
                     <label>
                         <input
@@ -71,19 +72,20 @@ function QuestionOne() {
                 {/*/>*/}
 
                 {/*//NAVIGATIE BUTTONS*/}
+                <div className="nav-button-container">
+                    <Link to="/start">
+                        <NavButton
+                            buttonType="button"
+                            buttonText="Vorige"
+                        />
+                    </Link>
 
-                <Link to="/start">
                     <NavButton
-                        buttonType="button"
-                        buttonText="Vorige"
+                        buttonType="submit"
+                        buttonText="Volgende"
+                        answerValues={userDay}
                     />
-                </Link>
-
-                <NavButton
-                    buttonType="submit"
-                    buttonText="Volgende"
-                    answerValues={true}
-                />
+                </div>
 
             </form>
 

@@ -1,3 +1,5 @@
+/*/// LOGIN PAGINA ///*/
+
 .login-page {
     display: flex;
     flex-direction: column;
@@ -13,7 +15,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin: 20px;
+    margin: 10px;
 
 }
 .buttons-in-form > button {
@@ -22,7 +24,7 @@
     box-shadow: 3px 4px 0 #782FD6;
     border-radius: 9px;
     color: #000000;
-    margin: 20px;
+    margin: 10px;
     padding: 7px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 17px;
@@ -30,17 +32,19 @@
 }
 
 .buttons-in-form > button:hover {
-    font-size: 19px;
-    width: 85px;
+    background-color: mediumpurple;
+    color: white;
 }
 
 .enter-button {
-    width: 40px;
+    width: 35px;
     position: relative;
-
+    left: 37px;
+    bottom: 44px;
 }
 
-:disabled {
+
+.buttons-in-form > button:disabled {
     background: lavender;
     border: 2px solid #000000;
     box-shadow: 3px 4px 0 #782FD6;
@@ -49,7 +53,7 @@
     margin: 5px;
     padding: 7px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 14px;
+
 }
 
 .inputfield {
@@ -63,12 +67,6 @@
     font-weight: bolder;
 }
 
-.enter-button > button {
-    border: none;
-    background: none;
-    width: 50px;
-}
-
 ::placeholder {
     color: darkgrey;
 
@@ -77,4 +75,32 @@
 .buttonLink {
     color: #000000;
     text-decoration: none;
+}
+
+.buttonLink:hover {
+    background-color: mediumpurple;
+    color: white;
+}
+
+
+/*/// REGISTER PAGINA ///*/
+
+.register-navigation > button {
+    background: #CBCAFF;
+    border: 2px solid #000000;
+    box-shadow: 3px 4px 0 #782FD6;
+    border-radius: 9px;
+    color: #000000;
+    margin: 10px;
+    padding: 7px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 17px;
+}
+
+.register-navigation > button:hover {
+    background-color: mediumpurple;
+    color: white;
+}
+.register-navigation {
+    margin: 10px;
 }

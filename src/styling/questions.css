@@ -24,8 +24,8 @@
 }
 
 .nav-button:hover {
-    font-size: 19px;
-    width: 85px;
+    background-color: mediumpurple;
+    color: white;
 
 }
 
@@ -35,10 +35,10 @@
     box-shadow: 3px 4px 0 #782FD6;
     border-radius: 9px;
     color: grey;
-    margin: 5px;
+    margin: 20px;
     padding: 7px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .question {
@@ -50,7 +50,7 @@
     border: 1.5px solid #000000;
     border-radius: 30px 30px 30px 0;
     box-shadow: 3px 4px 0 #782FD6;
-    margin: 10px 0 15px 0;
+    margin: 18px 0 15px 0;
     padding: 10px;
 }
 

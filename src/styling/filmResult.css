@@ -1,0 +1,80 @@
+
+/*// FILM CARD //*/
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 90px;
+    padding: 10px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    z-index: 1;
+
+}
+
+.result-text > h1 {
+    /*margin: 0 0 0 19px;*/
+    text-align: center;
+    padding: 8px;
+    width: 100px;
+    color: white;
+    font-size: 35px;
+    text-shadow: 3px 3px 2px #782FD6;
+}
+.result-text > p {
+    /*margin: 0 0 0 19px;*/
+    text-align: center;
+    padding: 8px;
+    width: 100px;
+    color: white;
+    font-size: 16px;
+    text-shadow: 2px 3px 2px #782FD6;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+/*// FILM POSTER //*/
+
+.movie-poster {
+    position: absolute;
+    top: 90px;
+    width: 205px;
+    margin: 5px;
+    z-index: -1;
+    border-radius: 15px;
+    mix-blend-mode: overlay;
+    filter: blur(3px);
+    opacity: 1;
+}
+
+.movieposter-background {
+    position: absolute;
+    top: 93px;
+    left: 536px;
+    width: 219px;
+    height: 314px;
+    z-index: -2;
+    background: #65B1EF;
+    border: 2px solid #000000;
+    box-shadow: 5px 4px 0px #782FD6;
+    border-radius: 15px;
+}
+
+/*// RESULT TOOLS //*/
+
+.film-result-tools {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 120px;
+
+}
+
+.activeShare:hover {
+    width: 33px;
+}
+
+.activeReturn:hover {
+    width: 33px;
+}

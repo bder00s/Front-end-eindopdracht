@@ -90,19 +90,21 @@ const keyApi = process.env.REACT_APP_API_KEY
             <div>
                 <NavBar/>
                 <div className="result">
+                    <article className="result-text">
                     <h1>{movieResult.Title}</h1>
-                    <h2>{movieResult.Year}</h2>
-                    <h3>Rated {movieResult.imdbRating} on IMDB!</h3>
-                    <img src={movieResult.Poster} alt="movieposter" width="100"/>
+                    <p>{movieResult.Year}</p>
+                    <p>Rated {movieResult.imdbRating} on IMDB!</p>
+                    </article>
+                    <img className="movie-poster" src={movieResult.Poster} alt="movieposter" />
+                    <span className="movieposter-background"></span>
                 </div>
 
-                <article className="filmResultTools">
+                <div className="film-result-tools">
 
-                    <img src={share} alt="share result" width="30"/>
+                    <img src={share} alt="share result" width="30" className="activeShare"/>
+                    <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>
 
-                    <Link to="/start"> <img src={retry} alt="try again" width="30"/> </Link>
-
-                </article>
+                </div>
             </div>
         );
 

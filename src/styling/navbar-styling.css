@@ -8,11 +8,13 @@
 
 .nav-bar {
     background-color: #65B1EF;
-    border: #65B1EF solid 5px;
+    /*border: #65B1EF solid 5px;*/
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border: solid 2px #62ACE9
+
 }
 
 .home-icon {
@@ -67,6 +69,7 @@
     background-color: #65B1EF;
     position: absolute;
     padding: 5px;
+
 }
 
 

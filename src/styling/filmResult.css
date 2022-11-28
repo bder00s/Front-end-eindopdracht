@@ -9,12 +9,12 @@
 }
 
 .result-text {
-    margin-top: 120px;
+    margin-top: 105px;
 }
 
 .result-text > h1 {
     width: 100px;
-    height: 40px;
+    height: 100px;
     text-align: center;
     color: white;
     font-size: 35px;
@@ -63,7 +63,7 @@
 /*// RESULT TOOLS //*/
 
 .film-result-tools {
-    margin-top: 155px;
+    margin-top: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

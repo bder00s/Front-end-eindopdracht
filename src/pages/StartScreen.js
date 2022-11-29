@@ -11,12 +11,12 @@ function StartScreen() {
     return (
         <div className="start">
 
-         <article className="startPageHeader">
-             <img src={logo} className="main-logo" alt="logo"/>
-             <Hamburger />
-         </article>
+            <article className="startPageHeader">
+                <img src={logo} className="main-logo" alt="logo"/>
+                <span className="hamburger-start"><Hamburger/></span>
+            </article>
             <Link to="/question-one" className="activeStartButton">
-            <img src={startLogo}  alt="Start button"  className="startButton"/>
+                <img src={startLogo}  alt="Start button"  className="startButton"/>
             </Link>
 
 
@@ -26,3 +26,4 @@ function StartScreen() {
 }
 
 export default StartScreen;
+

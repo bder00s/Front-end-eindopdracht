@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Inputfield({fieldId, fieldType, fieldPlaceholder, fieldName, fieldText, fieldContent, setFieldContent}) {
 

@@ -11,6 +11,7 @@ function Register() {
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
 
+
     function handleSubmitRegister(e) {
         e.preventDefault()
         console.log(
@@ -32,7 +33,7 @@ function Register() {
     // //     } catch (e) {
     // //         console.error(e)
     // //     }
-    // }
+
 
     return (
         <>
@@ -49,24 +50,31 @@ function Register() {
                     <p>Geef een emailadres op:</p>
                     <Inputfield
                         fieldId="email-register"
-                        // fieldText="Geef een emailadres op: "
                         fieldType="text"
                         fieldName="email-register"
                         fieldPlaceholder="Emailadres"
                         fieldContent={registerEmail}
                         setFieldContent={setRegisterEmail}
                     />
+                    {
+                        registerPassword.length >= 1 && !registerEmail.includes("@") &&
+                        <span className="error-message">Geef een geldig emailadres op!</span>
+                    }
 
                     <p>Geef een wachtwoord op</p>
                     <Inputfield
                         fieldId="password-register"
-                        // fieldText="Geef een wachtwoord op: "
                         fieldType="password"
                         fieldName="password-register"
                         fieldPlaceholder="Wachtwoord"
                         fieldContent={registerPassword}
                         setFieldContent={setRegisterPassword}
                     />
+                    {
+                        registerPassword.length >= 1 && registerPassword.length <= 4 &&
+                        <span className="error-message">Wachtwoord moet uit minimaal 4 tekens bestaan</span>
+                    }
+
 
                     <div className="register-navigation">
                         <button type="button"

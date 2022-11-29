@@ -63,6 +63,8 @@ function Home({toggleAuth}) {
                     fieldContent={loginEmail}
                     setFieldContent={setLoginEmail}
                 />
+                {loginEmail.length >= 1 && !loginEmail.includes("@") &&
+                    <span className="error-message">Geef een geldig emailadres op!</span>}
 
                 <Inputfield
                     fieldId="password-login"

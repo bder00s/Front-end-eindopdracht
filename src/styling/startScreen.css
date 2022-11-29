@@ -22,11 +22,13 @@
 
 }
 
-.startPageHeader  .menu {
-    position: absolute;
-    right: 500px;
-    top: 120px;
+.startPageHeader .menu {
+    background-color: #CBCAFF;
+}
 
+.hamburger-start {
+    position: relative;
+    top: -40px;
 }
 
 

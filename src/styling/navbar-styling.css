@@ -7,12 +7,15 @@
 }
 
 .nav-bar {
+    margin-top: 10px;
     background-color: #65B1EF;
     /*border: #65B1EF solid 5px;*/
+    width: 300px;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
     border: solid 2px #62ACE9
 
 }

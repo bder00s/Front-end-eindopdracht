@@ -13,7 +13,7 @@ function StartScreen() {
 
          <article className="startPageHeader">
              <img src={logo} className="main-logo" alt="logo"/>
-             <Hamburger />
+             <span className="hamburger-start"><Hamburger/></span>
          </article>
             <Link to="/question-one" className="activeStartButton">
             <img src={startLogo}  alt="Start button"  className="startButton"/>

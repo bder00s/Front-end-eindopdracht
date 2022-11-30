@@ -90,20 +90,20 @@ function FilmResult() {
 
     //SHARE RESULTAAT FUNCTIE
 
-    function shareFilmCard() {
-        const container = document.getElementById("filmCard");
-        html2canvas(container, {allowTaint: true})
-            .then(function (canvas) {
-                const link = document.createElement("a");
-                document.body.appendChild(link);
-                link.download = "Film_resultaat.jpg";
-                link.href = canvas.toDataURL();
-                link.target = '_blank';
-                link.click();
-            })
-    }
+    // function shareFilmCard() {
+    //     const container = document.getElementById("filmCard");
+    //     html2canvas(container, {allowTaint: true})
+    //         .then(function (canvas) {
+    //             const link = document.createElement("a");
+    //             document.body.appendChild(link);
+    //             link.download = "Film_resultaat.jpg";
+    //             link.href = canvas.toDataURL();
+    //             link.target = '_blank';
+    //             link.click();
+    //         })
+    // }
 
-    shareFilmCard()
+    // shareFilmCard()
 
     return (
         <div>

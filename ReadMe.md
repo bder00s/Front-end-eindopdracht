@@ -1,9 +1,11 @@
-#eindopdracht 
+
 # Installatiehandleiding MovieMood
 
-![[screenshot app.jpg]]
 
+
+![screenshot app](https://user-images.githubusercontent.com/105774363/204863942-61a89569-acd6-4195-b9d6-449c832625f2.jpg)
 ### Inleiding
+
 Deze app maakt het mogelijk om op basis van je stemming een bijpassende film op te vragen!
 De ingelogde gebruiker beantwoord drie vragen over zijn/haar stemming en aan de hand daarvan wordt er een bijpassende (of juist tegenovergestelde - wanneer gebruiker zijn/haar stemming wil veranderen) filmtitel gegenereert en bijbehorende info opgehaald in de API.
 
@@ -11,7 +13,8 @@ De app bevat zowel een loginfunctie als registratiefunctie. Twee aanvullende fun
 
 ### Benodigdheden
 - Een API key voor het opvragen van de filminformatie. Deze staat vermeld in het .env bestand in het project.  key -> 955bd41a
-- Dependencies waar dit project gebruik van maakt, zijn o.a. 
+- Dependencies waar dit project gebruik van 
+maakt, zijn o.a. 
 	- react: 18.2.0
 	- react-dom: 18.2.0
 	- react-router-dom: 5.2.0

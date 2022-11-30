@@ -1,7 +1,7 @@
 #eindopdracht 
 # Installatiehandleiding MovieMood
 
-![[Pasted image 20221130164841.png]]
+![[screenshot app.jpg]]
 
 ### Inleiding
 Deze app maakt het mogelijk om op basis van je stemming een bijpassende film op te vragen!

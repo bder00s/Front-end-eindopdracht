@@ -119,7 +119,6 @@ function FilmResult() {
             </div>
 
             <div className="film-result-tools">
-                {/*<a href={canvas.toDataURL()} target='_blank' ></a>*/}
                 <img
                     src={share}
                     alt="share result"
@@ -127,8 +126,6 @@ function FilmResult() {
                     className="activeShare"
                     id="shareButton"
                 />
-
-
                 <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>
             </div>
 

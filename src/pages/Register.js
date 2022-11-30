@@ -23,6 +23,7 @@ function Register() {
     }
 
 
+// POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND
 
     // async function registerHandler() {
     //     try {

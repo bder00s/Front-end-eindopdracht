@@ -96,9 +96,10 @@ function QuestionTwo() {
                 </div>
 
                 {/*//NAVIGATIE BUTTONS*/}
+                <div className="nav-button-container">
 
                 <Link to="/question-one">
-                    <NavButton
+                    <NavButton className="nav"
                         buttonType="button"
                         buttonText="Vorige"
                     />
@@ -106,10 +107,10 @@ function QuestionTwo() {
 
                 <NavButton buttonType="submit"
                            buttonText="Volgende"
-                           answerValues={userMood}/>
-
+                           answerValues={userMood}
+                />
+                </div>
             </form>
-
 
         </div>
     );

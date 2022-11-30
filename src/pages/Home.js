@@ -32,18 +32,18 @@ function Home({toggleAuth}) {
 
     //POST REQUEST NAAR BACKEND
 
-    async function clickHandler() {
-        try {
-            const response = await axios.post('http://localhost:3000/login', {
-                email: " ",
-                password: " ",
-            });
-            console.log(response)
-
-        } catch (e) {
-            console.error(e)
-        }
-    }
+    // async function clickHandler() {
+    //     try {
+    //         const response = await axios.post('http://localhost:3000/login', {
+    //             email: " ",
+    //             password: " ",
+    //         });
+    //         console.log(response)
+    //
+    //     } catch (e) {
+    //         console.error(e)
+    //     }
+    // }
 
     return (
         <div className="login-page">
@@ -74,16 +74,19 @@ function Home({toggleAuth}) {
                     fieldContent={loginPassword}
                     setFieldContent={setLoginPassword}
                 />
+                {loginPassword.length >= 1 && loginPassword.length <= 4 &&
+                    <span className="error-message">Wachtwoord moet uit minimaal 4 tekens bestaan</span>
+                }
                 <div className="buttons-in-form">
 
                 <button
-                    onClick={clickHandler}
+                    // onClick={clickHandler}
                     className="login-button"
                     type="submit"
                     disabled={loginPassword === "" && loginEmail === ""}>
                     Login!
                 </button>
-                    {/*<img src={enter} className="enter-button" alt="login"/>*/}
+
 
                 {/*LINK NAAR REGISTRATIEPAGINA*/}
 

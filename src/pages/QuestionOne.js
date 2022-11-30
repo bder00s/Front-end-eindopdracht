@@ -63,13 +63,6 @@ function QuestionOne() {
                     </label>
                 </div>
 
-                {/*<Answer*/}
-                {/*    answerId="bad"*/}
-                {/*    answerName="answer-question-one"*/}
-                {/*    answerValue={checkedBad}*/}
-                {/*    answerContent="☹"*/}
-                {/*    setAnswerValue={toggleCheckedBad}*/}
-                {/*/>*/}
 
                 {/*//NAVIGATIE BUTTONS*/}
                 <div className="nav-button-container">

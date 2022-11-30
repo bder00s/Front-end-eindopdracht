@@ -64,6 +64,9 @@ function QuestionThree() {
                     </label>
                 </div>
 
+                {/*//NAVIGATIE BUTTONS//*/}
+                <div className="nav-button-container">
+
                 <Link to="/question-two">
                     <NavButton
                         buttonType="button"
@@ -76,9 +79,8 @@ function QuestionThree() {
                     buttonText="Geef me een film!"
                     answerValues={true}
                 />
-
+                </div>
             </form>
-
         </div>
     );
 

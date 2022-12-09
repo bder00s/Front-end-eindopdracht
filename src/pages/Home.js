@@ -7,6 +7,8 @@ import axios from "axios";
 
 import {AuthContext} from "../context/AuthContext";
 
+//https://github.com/hogeschoolnovi/novi-educational-backend-documentation
+
 
 function Home({toggleAuth}) {
 
@@ -15,35 +17,37 @@ function Home({toggleAuth}) {
     const {isAuth, login} = useContext(AuthContext);
 
     const [loginEmail, setLoginEmail] = useState('');
+    const [loginUsername, setLoginUsername] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
+    // const [error, setError] = useState('');
 
     //FUNCTIE DIE HET INLOGGEN AFHANDELD
-    function handleSubmitLogin(e) {
+    async function handleSubmitLogin(e) {
         e.preventDefault();
+        try {
+            const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
+                "username": loginUsername,
+                "email": loginEmail,
+                "password": loginPassword,
+            });
+            console.log(response);
+
+        } catch (e) {
+            console.error(e);
+
+        }
+
         console.log(`
             Gebruiker logt in.
             Emailadres: ${loginEmail},
             Wachtwoord: ${loginPassword}
             `);
-        history.push("/start");
+
+        // history.push("/start");
         login()
-        // clickHandler()
+
     }
 
-    //POST REQUEST NAAR BACKEND
-
-    // async function clickHandler() {
-    //     try {
-    //         const response = await axios.post('http://localhost:3000/login', {
-    //             email: " ",
-    //             password: " ",
-    //         });
-    //         console.log(response)
-    //
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-    // }
 
     return (
         <div className="login-page">
@@ -55,6 +59,15 @@ function Home({toggleAuth}) {
 
 
             <form className="login-form" onSubmit={handleSubmitLogin}>
+                <Inputfield
+                    fieldId="username-login"
+                    fieldType="text"
+                    fieldName="username-login"
+                    fieldPlaceholder="Gebruikersnaam"
+                    fieldContent={loginUsername}
+                    setFieldContent={setLoginUsername}
+                />
+
                 <Inputfield
                     fieldId="email-login"
                     fieldType="text"
@@ -79,25 +92,23 @@ function Home({toggleAuth}) {
                 }
                 <div className="buttons-in-form">
 
-                <button
-                    // onClick={clickHandler}
-                    className="login-button"
-                    type="submit"
-                    disabled={loginPassword === "" && loginEmail === ""}>
-                    Login!
-                </button>
+                    <button
+                        // onClick={clickHandler}
+                        className="login-button"
+                        type="submit"
+                        disabled={loginPassword === "" && loginEmail === ""}>
+                        Login!
+                    </button>
 
 
-                {/*LINK NAAR REGISTRATIEPAGINA*/}
+                    {/*LINK NAAR REGISTRATIEPAGINA*/}
 
-                <button type="button">
-                    <NavLink to="/register"  className="buttonLink">Registreren</NavLink>
-                </button>
+                    <button type="button">
+                        <NavLink to="/register" className="buttonLink">Registreren</NavLink>
+                    </button>
                 </div>
 
             </form>
-
-
 
 
         </div>

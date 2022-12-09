@@ -8,41 +8,41 @@ import axios from "axios";
 
 function Register() {
     const history = useHistory();
-    const [registerEmail, setRegisterEmail] = useState('');
-    const [registerPassword, setRegisterPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
 
 
-    function handleSubmitRegister(e) {
+   async function handleSubmitRegister(e) {
         e.preventDefault()
-        console.log(
+       // POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND
+           try {
+               const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                   "username": username,
+                   "email": email,
+                   "password": password,
+               });
+               // Hier komt nog een headers object met keys. Les 7 Nova 30:30 . Bearer etc.
+               console.log(response);
+               history.push("/");
+
+           } catch (e) {
+               console.error(e)
+           }
+
+           console.log(
             `Gebruiker heeft account aangemaakt.
-            Emailadres: ${registerEmail},  
-            Wachtwoord: ${registerPassword}
+            Gebruikersnaam: ${username},
+            Emailadres: ${email},  
+            Wachtwoord: ${password}
            `)
-        history.push("/");
+        // history.push("/");
     }
-
-
-// POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND
-
-    // async function registerHandler() {
-    //     try {
-    //         const response = await axios.post('http://localhost:3000/login', {
-    //             email: " ",
-    //             password: " ",
-    //         });
-    //         console.log(response)
-    //
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-
-
-
     return (
         <>
 
             <div className="register">
+
                 {/*//HEADER*/}
                 <img className="register-header" src={register} alt="register text"/>
 
@@ -51,31 +51,45 @@ function Register() {
                 <form
                     className="register-page"
                     onSubmit={handleSubmitRegister}>
+
+                    <p>Geef een username op:</p>
+                    <Inputfield
+                        fieldId="username-register"
+                        fieldType="text"
+                        fieldName="username"
+                        fieldPlaceholder="Username"
+                        fieldContent={username}
+                        setFieldContent={setUsername}
+                    />
+
+
+
                     <p>Geef een emailadres op:</p>
                     <Inputfield
                         fieldId="email-register"
-                        fieldType="text"
-                        fieldName="email-register"
+                        fieldType="email"
+                        fieldName="email"
                         fieldPlaceholder="Emailadres"
-                        fieldContent={registerEmail}
-                        setFieldContent={setRegisterEmail}
+                        fieldContent={email}
+                        setFieldContent={setEmail}
                     />
                     {
-                        registerPassword.length >= 1 && !registerEmail.includes("@") &&
+                        password.length >= 1 && !email.includes("@") &&
                         <span className="error-message">Geef een geldig emailadres op!</span>
                     }
+
 
                     <p>Geef een wachtwoord op</p>
                     <Inputfield
                         fieldId="password-register"
                         fieldType="password"
-                        fieldName="password-register"
+                        fieldName="password"
                         fieldPlaceholder="Wachtwoord"
-                        fieldContent={registerPassword}
-                        setFieldContent={setRegisterPassword}
+                        fieldContent={password}
+                        setFieldContent={setPassword}
                     />
                     {
-                        registerPassword.length >= 1 && registerPassword.length <= 4 &&
+                        password.length >= 1 && password.length <= 4 &&
                         <span className="error-message">Wachtwoord moet uit minimaal 4 tekens bestaan</span>
                     }
 
@@ -86,7 +100,7 @@ function Register() {
                             Terug
                         </button>
                         <button type="submit"
-                                onClick={handleSubmitRegister}>
+                                >
                             Registreer!
                         </button>
                     </div>

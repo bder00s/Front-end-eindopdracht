@@ -39,6 +39,7 @@ function Home({toggleAuth}) {
 
         console.log(`
             Gebruiker logt in.
+            Gebruikersnaam: ${loginUsername},
             Emailadres: ${loginEmail},
             Wachtwoord: ${loginPassword}
             `);

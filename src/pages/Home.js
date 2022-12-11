@@ -30,7 +30,8 @@ function Home({toggleAuth}) {
                 "email": loginEmail,
                 "password": loginPassword,
             });
-            console.log(response);
+            console.log(response.data.accessToken);
+            login(response.data.accessToken);
 
         } catch (e) {
             console.error(e);
@@ -45,7 +46,7 @@ function Home({toggleAuth}) {
             `);
 
         // history.push("/start");
-        login()
+
 
     }
 
@@ -88,8 +89,8 @@ function Home({toggleAuth}) {
                     fieldContent={loginPassword}
                     setFieldContent={setLoginPassword}
                 />
-                {loginPassword.length >= 1 && loginPassword.length <= 4 &&
-                    <span className="error-message">Wachtwoord moet uit minimaal 4 tekens bestaan</span>
+                {loginPassword.length >= 1 && loginPassword.length <= 6 &&
+                    <span className="error-message">Wachtwoord moet uit minimaal 6 tekens bestaan</span>
                 }
                 <div className="buttons-in-form">
 

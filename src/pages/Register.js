@@ -21,6 +21,7 @@ function Register() {
                    "username": username,
                    "email": email,
                    "password": password,
+                   "role": ["user"]
                });
                // Hier komt nog een headers object met keys. Les 7 Nova 30:30 . Bearer etc.
                console.log(response);
@@ -89,8 +90,8 @@ function Register() {
                         setFieldContent={setPassword}
                     />
                     {
-                        password.length >= 1 && password.length <= 4 &&
-                        <span className="error-message">Wachtwoord moet uit minimaal 4 tekens bestaan</span>
+                        password.length >= 1 && password.length <= 6 &&
+                        <span className="error-message">Wachtwoord moet uit minimaal 6 tekens bestaan</span>
                     }
 
 

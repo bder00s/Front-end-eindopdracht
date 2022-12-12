@@ -24,7 +24,7 @@ function Register() {
                    "role": ["user"]
                });
                // Hier komt nog een headers object met keys. Les 7 Nova 30:30 . Bearer etc.
-               console.log(response);
+               console.log(response.data);
                history.push("/");
 
            } catch (e) {
@@ -37,7 +37,7 @@ function Register() {
             Emailadres: ${email},  
             Wachtwoord: ${password}
            `)
-        // history.push("/");
+
     }
     return (
         <>
@@ -53,16 +53,15 @@ function Register() {
                     className="register-page"
                     onSubmit={handleSubmitRegister}>
 
-                    <p>Geef een username op:</p>
+                    <p>Geef een gebruikersnaam op:</p>
                     <Inputfield
                         fieldId="username-register"
                         fieldType="text"
                         fieldName="username"
-                        fieldPlaceholder="Username"
+                        fieldPlaceholder="Gebruikersnaam"
                         fieldContent={username}
                         setFieldContent={setUsername}
                     />
-
 
 
                     <p>Geef een emailadres op:</p>
@@ -96,12 +95,10 @@ function Register() {
 
 
                     <div className="register-navigation">
-                        <button type="button"
-                                onClick={() => history.push("/")}>
+                        <button type="button">
                             Terug
                         </button>
-                        <button type="submit"
-                                >
+                        <button type="submit">
                             Registreer!
                         </button>
                     </div>

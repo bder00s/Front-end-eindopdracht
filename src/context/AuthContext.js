@@ -1,6 +1,8 @@
 import React, {createContext, useState} from "react";
 import {useHistory} from "react-router-dom";
 import jwtDecode from "jwt-decode";
+import axios from "axios";
+import {testBackend} from "../helpers/testBackend";
 
 export const AuthContext = createContext({})
 
@@ -11,31 +13,59 @@ function AuthContextProvider({children}) {
     });
     const history = useHistory()
 
-    //LOGIN FUNCTIE WAAR OOK DE TOKEN AAN DOOR WORDT GEGEVEN
-    function login(token){
-        console.log(token);
+//GEBRUIKERS INFO OPVRAGEN
+    testBackend();
+
+    async function getUserData(id, token) {
+        try {
+            const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user/${id}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            console.log(result)
+            toggleIsAuth({
+                ...isAuth,
+                isAuth: true,
+                user: {id: result.data.id,
+                email:result.data.email,
+                username:result.data.username}
+            })
+
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
+//LOGIN FUNCTIE WAAR OOK DE TOKEN AAN DOOR WORDT GEGEVEN
+    function login(jwt) {
+
+        //TOKEN GEDECODEERD
+        const decoded = jwtDecode(jwt)
+        console.log(decoded)
+
         //Token naar Local storage
-        localStorage.setItem('token', token);
-        const decodedToken = jwtDecode(token)
-        console.log('decoded token:', decodedToken);
-        //Nieuwe data opvragen van gebruiker
+        localStorage.setItem('token', jwt);
 
+        getUserData(decoded.sub, jwt)
 
-
+        //Gebruiker wordt ingelogd
         toggleIsAuth({
             ...isAuth,
             isAuth: true,
-            // user: {
-            // email: decodedToken.email,
-            // id: decodedToken.sub,
-            // }
-
+            user: {
+                email: decoded.email,
+                id: decoded.sub,
+            }
         });
         console.log("Gebruiker logt in");
         history.push("/start");
     }
 
-    function logout(){
+    function logout() {
+        //Token uit local storage verwijderen
         localStorage.removeItem('token')
         toggleIsAuth({
             ...isAuth,
@@ -48,11 +78,12 @@ function AuthContextProvider({children}) {
 
     const contextData = {
         isAuth: isAuth,
+        isUser: isAuth.user,
         login: login,
         logout: logout,
     };
 
-    return(
+    return (
         <AuthContext.Provider value={contextData}>
             {children}
         </AuthContext.Provider>

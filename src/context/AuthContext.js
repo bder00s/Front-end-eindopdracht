@@ -1,4 +1,4 @@
-import React, {createContext, useState} from "react";
+import React, {createContext, useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
@@ -10,48 +10,43 @@ function AuthContextProvider({children}) {
     const [isAuth, toggleIsAuth] = useState({
         isAuth: false,
         user: null,
+        status: 'pending',
     });
     const history = useHistory()
 
-//GEBRUIKERS INFO OPVRAGEN
+
+    //MOUNTING LIFECYCLE//////////////////////////////////
+
+useEffect(() => {
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            const decoded = jwtDecode(token);
+            getUserData(decoded.sub, token);
+        } else {
+            toggleIsAuth({
+                isAuth: false,
+                user: null,
+                status: 'done',
+            });
+        }
+
+}, []);
+
     testBackend();
 
-    async function getUserData(id, token) {
-        try {
-            const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user/${id}`, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            })
-            console.log(result)
-            toggleIsAuth({
-                ...isAuth,
-                isAuth: true,
-                user: {id: result.data.id,
-                email:result.data.email,
-                username:result.data.username}
-            })
 
-        } catch (error) {
-            console.error(error)
-        }
-    }
+//LOGIN FUNCTIE WAAR OOK DE TOKEN AAN DOOR WORDT GEGEVEN/////////////////////////////////////
 
-
-//LOGIN FUNCTIE WAAR OOK DE TOKEN AAN DOOR WORDT GEGEVEN
     function login(jwt) {
-
-        //TOKEN GEDECODEERD
+        //Token naar LocalStorage:
+        localStorage.setItem('token', jwt);
+        //Token gedecodeerd:
         const decoded = jwtDecode(jwt)
         console.log(decoded)
-
-        //Token naar Local storage
-        localStorage.setItem('token', jwt);
-
         getUserData(decoded.sub, jwt)
 
-        //Gebruiker wordt ingelogd
+        // GEBRUIKER WORDT INGELOGD/////////////////////////////////////
         toggleIsAuth({
             ...isAuth,
             isAuth: true,
@@ -61,9 +56,10 @@ function AuthContextProvider({children}) {
             }
         });
         console.log("Gebruiker logt in");
-        history.push("/start");
     }
+    history.push("/start");
 
+// GEBRUIKER WORDT UITGELOGD//////////////////////////////////////////////
     function logout() {
         //Token uit local storage verwijderen
         localStorage.removeItem('token')
@@ -76,16 +72,49 @@ function AuthContextProvider({children}) {
         history.push("/");
     }
 
+    //GEBRUIKERSINFO OPVRAGEN/////////////////////////////////////////
+    async function getUserData(id, token) {
+        try {
+            const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user/${id}`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+
+            toggleIsAuth({
+                ...isAuth,
+                isAuth: true,
+                user: {
+                    username: result.data.username,
+                    email: result.data.email,
+                    id: result.data.id,
+                },
+                status: 'done',
+            })
+
+
+        } catch (error) {
+            console.error(error)
+            toggleIsAuth({
+                isAuth: false,
+                user: null,
+                status: 'done',
+            });
+        }
+    }
+
     const contextData = {
         isAuth: isAuth,
         isUser: isAuth.user,
+        isEmail: isAuth.email,
         login: login,
         logout: logout,
     };
 
     return (
         <AuthContext.Provider value={contextData}>
-            {children}
+            { isAuth.status === 'done' ? children : <p>Loading...</p>}
         </AuthContext.Provider>
 
 

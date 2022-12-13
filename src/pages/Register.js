@@ -12,10 +12,19 @@ function Register() {
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
 
+    const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
 
+function goBack() {
+    console.log("go back")
+    history.push("/")
+}
    async function handleSubmitRegister(e) {
         e.preventDefault()
-       // POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND
+       toggleError(false);
+        toggleLoading(true);
+
+       // POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND//////////////////////////////////
            try {
                const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
                    "username": username,
@@ -23,13 +32,14 @@ function Register() {
                    "password": password,
                    "role": ["user"]
                });
-               // Hier komt nog een headers object met keys. Les 7 Nova 30:30 . Bearer etc.
-               console.log(response.data);
+               console.log(response);
                history.push("/");
 
            } catch (e) {
                console.error(e)
+               toggleError(true);
            }
+           toggleLoading(false);
 
            console.log(
             `Gebruiker heeft account aangemaakt.
@@ -53,16 +63,6 @@ function Register() {
                     className="register-page"
                     onSubmit={handleSubmitRegister}>
 
-                    <p>Geef een gebruikersnaam op:</p>
-                    <Inputfield
-                        fieldId="username-register"
-                        fieldType="text"
-                        fieldName="username"
-                        fieldPlaceholder="Gebruikersnaam"
-                        fieldContent={username}
-                        setFieldContent={setUsername}
-                    />
-
 
                     <p>Geef een emailadres op:</p>
                     <Inputfield
@@ -73,10 +73,22 @@ function Register() {
                         fieldContent={email}
                         setFieldContent={setEmail}
                     />
-                    {
-                        password.length >= 1 && !email.includes("@") &&
-                        <span className="error-message">Geef een geldig emailadres op!</span>
+                    {!email.includes("@") && <span className="error-message">Geef een geldig emailadres op!</span>
                     }
+
+                    <p>Geef een gebruikersnaam op:</p>
+                    <Inputfield
+                        fieldId="username-register"
+                        fieldType="text"
+                        fieldName="username"
+                        fieldPlaceholder="Gebruikersnaam"
+                        fieldContent={username}
+                        setFieldContent={setUsername}
+                    />
+                    {username.length >= 1 && email.includes("@") && username.length <= 6 && <span className="error-message">Gebruikersnaam moet uit minimaal 6 tekens bestaan</span>
+                    }
+
+
 
 
                     <p>Geef een wachtwoord op</p>
@@ -88,17 +100,18 @@ function Register() {
                         fieldContent={password}
                         setFieldContent={setPassword}
                     />
-                    {
-                        password.length >= 1 && password.length <= 6 &&
-                        <span className="error-message">Wachtwoord moet uit minimaal 6 tekens bestaan</span>
+                    {password.length >= 1 && password.length <= 6 && <span className="error-message">Wachtwoord moet uit minimaal 6 tekens bestaan</span>
                     }
+                    {error && <p className="error-message">Er bestaat al een account met dit e-mailadres. Probeer het opnieuw</p>}
 
 
                     <div className="register-navigation">
-                        <button type="button">
+                        <button
+                            onClick={goBack}
+                            type="button">
                             Terug
                         </button>
-                        <button type="submit">
+                        <button type="submit" disabled={loading}>
                             Registreer!
                         </button>
                     </div>

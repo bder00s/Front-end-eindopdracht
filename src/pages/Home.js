@@ -10,22 +10,24 @@ import {AuthContext} from "../context/AuthContext";
 
 function Home({toggleAuth}) {
 
-    //DOORLINKEN EN DE AUTHENTICATIE CONTEXT
+    //DE AUTHENTICATIE CONTEXT/////////////////////////////////////////////////////////////////
     const history = useHistory();
-    const {isAuth, login, user} = useContext(AuthContext);
+    const {login} = useContext(AuthContext);
     const [loginUsername, setLoginUsername] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
-    // const [error, setError] = useState('');
+    const [error, toggleError] = useState(false);
 
-    //FUNCTIE DIE HET INLOGGEN AFHANDELD
+    //FUNCTIE DIE HET INLOGGEN AFHANDELD///////////////////////////////////////////////////////
     async function handleSubmitLogin(e) {
         e.preventDefault();
+        toggleError(false);
+
         try {
             const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
                 "username": loginUsername,
                 "password": loginPassword,
             });
-            // console.log(response);
+
             console.log(response.data);
             login(response.data.accessToken);
 
@@ -33,8 +35,7 @@ function Home({toggleAuth}) {
 
         } catch (e) {
             console.error(e);
-
-
+            toggleError(true);
         }
 
         console.log(`
@@ -53,7 +54,7 @@ function Home({toggleAuth}) {
 
             <img className="main-logo" src={logo} alt="logo"/>
 
-            {/*INVOERVELDEN VOOR HET INLOGGEN*/}
+            {/*//////////////////INVOERVELDEN VOOR HET INLOGGEN//////////////////////*/}
             <form className="login-form" onSubmit={handleSubmitLogin}>
 
                 <Inputfield
@@ -64,17 +65,9 @@ function Home({toggleAuth}) {
                     fieldContent={loginUsername}
                     setFieldContent={setLoginUsername}
                 />
-
-                {/*<Inputfield*/}
-                {/*    fieldId="email-login"*/}
-                {/*    fieldType="text"*/}
-                {/*    fieldName="email-login"*/}
-                {/*    fieldPlaceholder="Emailadres"*/}
-                {/*    fieldContent={loginEmail}*/}
-                {/*    setFieldContent={setLoginEmail}*/}
-                {/*/>*/}
-                {/*{loginEmail.length >= 1 && !loginEmail.includes("@") &&*/}
-                {/*    <span className="error-message">Geef een geldig emailadres op!</span>}*/}
+                {loginUsername.length >= 1 && loginUsername.length <= 6 &&
+                    <span className="error-message">Gebruikersnaam moet uit minimaal 6 tekens bestaan</span>
+                }
 
                 <Inputfield
                     fieldId="password-login"
@@ -87,6 +80,7 @@ function Home({toggleAuth}) {
                 {loginPassword.length >= 1 && loginPassword.length <= 6 &&
                     <span className="error-message">Wachtwoord moet uit minimaal 6 tekens bestaan</span>
                 }
+                {error && <p className="error-message">Kloppen je gegevens wel? 🤔 Probeer het nog eens</p>}
 
                 <div className="buttons-in-form">
                     <button
@@ -97,7 +91,7 @@ function Home({toggleAuth}) {
                     </button>
 
 
-                    {/*LINK NAAR REGISTRATIEPAGINA*/}
+                    {/*/////////////////////LINK NAAR REGISTRATIEPAGINA///////////////////////////////*/}
 
                     <button type="button">
                         <NavLink to="/register" className="buttonLink">Registreren</NavLink>

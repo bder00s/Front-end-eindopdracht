@@ -5,7 +5,7 @@ import NavButton from "../Components/NavButton";
 import NavBar from "../Components/NavBar";
 import {appContext} from "../App";
 
-// export const QuestionThreeContext = createContext({});
+
 
 function QuestionThree() {
     const history = useHistory();

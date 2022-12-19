@@ -6,7 +6,7 @@
     width: 260px;
     margin: 0;
     transform: rotate(-20deg);
-    transition: ease-out 0.5s;
+    transition: ease-in-out 0.5s;
 }
 
 /*// HEADER GEDEELTE */

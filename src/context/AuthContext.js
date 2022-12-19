@@ -14,10 +14,11 @@ function AuthContextProvider({children}) {
     });
     const history = useHistory()
 
+    testBackend();
 
     //MOUNTING LIFECYCLE//////////////////////////////////
 
-useEffect(() => {
+    useEffect(() => {
         const token = localStorage.getItem('token');
 
         if (token) {
@@ -31,12 +32,10 @@ useEffect(() => {
             });
         }
 
-}, []);
-
-    testBackend();
+    }, []);
 
 
-//LOGIN FUNCTIE WAAR OOK DE TOKEN AAN DOOR WORDT GEGEVEN/////////////////////////////////////
+    //LOGIN FUNCTIE WAAR OOK DE TOKEN AAN DOOR WORDT GEGEVEN/////////////////////////////////////
 
     function login(jwt) {
         //Token naar LocalStorage:
@@ -57,9 +56,10 @@ useEffect(() => {
         });
         console.log("Gebruiker logt in");
     }
+
     history.push("/start");
 
-// GEBRUIKER WORDT UITGELOGD//////////////////////////////////////////////
+    // GEBRUIKER WORDT UITGELOGD//////////////////////////////////////////////
     function logout() {
         //Token uit local storage verwijderen
         localStorage.removeItem('token')
@@ -114,7 +114,7 @@ useEffect(() => {
 
     return (
         <AuthContext.Provider value={contextData}>
-            { isAuth.status === 'done' ? children : <p>Loading...</p>}
+            {isAuth.status === 'done' ? children : <p>Loading...</p>}
         </AuthContext.Provider>
 
 

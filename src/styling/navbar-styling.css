@@ -99,13 +99,13 @@
 
 .burger-bar.clicked:nth-child(1) {
     transform: rotate(90deg);
-    transition: ease-out 0.5s;
+    transition: ease-in-out 0.5s;
     margin: 14px;
 }
 
 .burger-bar.unclicked:nth-child(1) {
     transform: rotate(180deg);
-    transition: ease-out 0.5s;
+    transition: ease-in-out 0.5s;
     margin: 14px;
 }
 

@@ -16,7 +16,6 @@ function Register() {
     const [loading, toggleLoading] = useState(false);
 
 function goBack() {
-    console.log("go back")
     history.push("/")
 }
    async function handleSubmitRegister(e) {

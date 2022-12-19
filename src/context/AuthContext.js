@@ -96,6 +96,7 @@ function AuthContextProvider({children}) {
 
         } catch (error) {
             console.error(error)
+
             toggleIsAuth({
                 isAuth: false,
                 user: null,

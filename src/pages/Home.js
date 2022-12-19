@@ -21,7 +21,6 @@ function Home({toggleAuth}) {
     async function handleSubmitLogin(e, loginUsername, loginPassword) {
         e.preventDefault();
         toggleError(false);
-
         try {
             const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
                 "username": loginUsername,
@@ -30,7 +29,6 @@ function Home({toggleAuth}) {
 
             console.log(response.data);
             login(response.data.accessToken);
-
             history.push("/start");
 
         } catch (e) {
@@ -43,8 +41,6 @@ function Home({toggleAuth}) {
             Gebruikersnaam: ${loginUsername},
             Wachtwoord: ${loginPassword}
             `);
-
-
     }
 
 

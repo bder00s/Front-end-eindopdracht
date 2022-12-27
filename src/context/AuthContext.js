@@ -35,6 +35,7 @@ function AuthContextProvider({children}) {
     }, []);
 
 
+
     //LOGIN FUNCTIE WAAR OOK DE TOKEN AAN DOOR WORDT GEGEVEN/////////////////////////////////////
 
     function login(jwt) {
@@ -43,7 +44,7 @@ function AuthContextProvider({children}) {
         //Token gedecodeerd:
         const decoded = jwtDecode(jwt)
         console.log(decoded)
-        getUserData(decoded.sub, jwt)
+        // getUserData(decoded.sub, jwt)
 
         // GEBRUIKER WORDT INGELOGD/////////////////////////////////////
         toggleIsAuth({

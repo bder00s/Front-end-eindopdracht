@@ -18,7 +18,7 @@ function Home({toggleAuth}) {
     const [error, toggleError] = useState(false);
 
     //FUNCTIE DIE HET INLOGGEN AFHANDELD///////////////////////////////////////////////////////
-    async function handleSubmitLogin(e, loginUsername, loginPassword) {
+    async function handleSubmitLogin(e) {
         e.preventDefault();
         toggleError(false);
         try {

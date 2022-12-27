@@ -1,11 +1,22 @@
 import React from "react"
 import NavBar from "../Components/NavBar";
-import {useContext} from "react";
-import {AuthContext} from "../context/AuthContext";
+
+import axios from "axios";
 
 function MovieHistory() {
 
-
+async function getUserInfo() {
+    try {
+        await axios.get('https://frontend-educational-backend.herokuapp.com/api/test/user', {
+            headers: {
+                    "Content-Type": "application/json",
+                    // "Authorization": `Bearer ${token}`
+                }
+        })
+    } catch(e) {
+        console.error(e)
+    }
+}
 
     return (
         <div className="movie-history">

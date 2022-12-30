@@ -82,13 +82,16 @@ function FilmResult() {
 
     }, [userMood, changeMood]);
 
+
+// PUT REQUEST TO ADD FILMRESULT TO USER-INFO
+
     async function saveResult() {
         try {
-            const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user',
+            const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
                 {
                     "info": `${movieResult.Title}`,
-                    "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
-                    "tokenType": "Bearer"
+                    // "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
+                    // "tokenType": "Bearer"
                 }
             )
         } catch (e) {

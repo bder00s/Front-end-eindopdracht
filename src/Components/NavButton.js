@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
 function NavButton({buttonType, buttonText, answerValues}) {
-    return (
 
+    return (
+<>
             <button className="nav-button"
                 type={buttonType}
                 disabled={!answerValues && (buttonText === "Volgende" || buttonText === "Geef me een film!")}
             >
                 {buttonText}
             </button>
-
+</>
     );
 };
 

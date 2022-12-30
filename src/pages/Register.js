@@ -11,12 +11,24 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
+    const [info, setInfo] = useState('');
 
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
+    const [dialogNotification, toggleDialogNotification] = useState(false);
+
+    ///////////////////////////////
 
 function goBack() {
     history.push("/")
+}
+
+function dialogOpen(){
+    toggleDialogNotification(true);
+}
+
+function dialogClose() {
+    toggleDialogNotification(false);
 }
    async function handleSubmitRegister(e) {
         e.preventDefault()
@@ -29,6 +41,7 @@ function goBack() {
                    "username": username,
                    "email": email,
                    "password": password,
+                   "info": info,
                    "role": ["user"]
                });
                console.log(response);
@@ -115,6 +128,16 @@ function goBack() {
                         </button>
                     </div>
                 </form>
+                {handleSubmitRegister ? {dialogOpen} &&
+                    <dialog
+                        className="dialog-window"
+                        open={dialogNotification}
+                    >Je bent succesvol geregistreerd!
+                      <Link to="/"> <button>Naar inlogscherm</button> </Link>
+                    </dialog>
+                    :
+                    {dialogClose}
+                }
 
             </div>
 

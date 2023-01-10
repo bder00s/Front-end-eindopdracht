@@ -68,6 +68,7 @@ function FilmResult() {
 
         async function getMovie() {
             try {
+
                 const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${getMovieName(userMood, changeMood)}`);
                 console.log(result.data);
                 setMovieResult(result.data);
@@ -85,19 +86,19 @@ function FilmResult() {
 
 // PUT REQUEST TO ADD FILMRESULT TO USER-INFO
 
-    async function saveResult() {
-        try {
-            const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
-                {
-                    "info": `${movieResult.Title}`,
-                    // "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
-                    // "tokenType": "Bearer"
-                }
-            )
-        } catch (e) {
-            console.error(e);
-        }
-    }
+    // async function saveResult() {
+    //     try {
+    //         const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
+    //             {
+    //                 "info": `${movieResult.Title}`,
+    //                 // "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
+    //                 // "tokenType": "Bearer"
+    //             }
+    //         )
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
+    // }
 
 
     return (

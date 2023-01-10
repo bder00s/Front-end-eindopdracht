@@ -23,13 +23,6 @@ function goBack() {
     history.push("/")
 }
 
-function dialogOpen(){
-    toggleDialogNotification(true);
-}
-
-function dialogClose() {
-    toggleDialogNotification(false);
-}
    async function handleSubmitRegister(e) {
         e.preventDefault()
        toggleError(false);
@@ -50,8 +43,9 @@ function dialogClose() {
            } catch (e) {
                console.error(e)
                toggleError(true);
+           } finally {
+               toggleLoading(false);
            }
-           toggleLoading(false);
 
            console.log(
             `Gebruiker heeft account aangemaakt.

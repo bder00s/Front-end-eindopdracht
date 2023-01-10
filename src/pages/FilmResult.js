@@ -5,11 +5,6 @@ import retry from "../assets/test.png"
 import NavBar from "../Components/NavBar";
 import {Link} from "react-router-dom";
 import {appContext} from "../App";
-import html2canvas from "html2canvas";
-
-
-//https://www.cluemediator.com/convert-html-element-or-document-into-image-in-react
-// https://www.npmjs.com/package/html-to-image
 
 
 const keyApi = process.env.REACT_APP_API_KEY
@@ -73,6 +68,7 @@ function FilmResult() {
 
         async function getMovie() {
             try {
+
                 const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${getMovieName(userMood, changeMood)}`);
                 console.log(result.data);
                 setMovieResult(result.data);
@@ -85,29 +81,31 @@ function FilmResult() {
 
         getMovie()
 
-
     }, [userMood, changeMood]);
 
-    //SHARE RESULTAAT FUNCTIE
 
-    // function shareFilmCard() {
-    //     const container = document.getElementById("filmCard");
-    //     html2canvas(container, {allowTaint: true})
-    //         .then(function (canvas) {
-    //             const link = document.createElement("a");
-    //             document.body.appendChild(link);
-    //             link.download = "Film_resultaat.jpg";
-    //             link.href = canvas.toDataURL();
-    //             link.target = '_blank';
-    //             link.click();
-    //         })
+// PUT REQUEST TO ADD FILMRESULT TO USER-INFO
+
+    // async function saveResult() {
+    //     try {
+    //         const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
+    //             {
+    //                 "info": `${movieResult.Title}`,
+    //                 // "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
+    //                 // "tokenType": "Bearer"
+    //             }
+    //         )
+    //     } catch (e) {
+    //         console.error(e);
+    //     }
     // }
 
-    // shareFilmCard()
 
     return (
         <div>
             <NavBar/>
+
+            {/*//FILM RESULTAAT*/}
             <div className="result" id="filmCard">
                 <article className="result-text">
                     <h1>{movieResult.Title}</h1>
@@ -118,14 +116,20 @@ function FilmResult() {
                 <span className="movieposter-background"></span>
             </div>
 
+            {/*//SHARE FILMRESULTAAT*/}
             <div className="film-result-tools">
-                <img
-                    src={share}
-                    alt="share result"
-                    width="30"
-                    className="activeShare"
-                    id="shareButton"
-                />
+                <a href={`https://www.imdb.com/title/${movieResult.imdbID}`} target={"blank"}>
+                    <img
+                        src={share}
+                        alt="share result"
+                        width="30"
+                        className="activeShare"
+                        id="shareButton"
+                    />
+                </a>
+                <button onClick={saveResult}>Save result</button>
+
+                {/*//RETRY FUNCTIE*/}
                 <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>
             </div>
 

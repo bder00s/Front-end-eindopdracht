@@ -13,6 +13,8 @@ function Inputfield({fieldId, fieldType, fieldPlaceholder, fieldName, fieldText,
                     placeholder={fieldPlaceholder}
                     value={fieldContent}
                     onChange={(e) => setFieldContent(e.target.value)}
+                    autoComplete="off"
+                    required={true}
                 />
             </label>
         </div>

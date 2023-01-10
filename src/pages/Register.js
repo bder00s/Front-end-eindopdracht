@@ -8,41 +8,58 @@ import axios from "axios";
 
 function Register() {
     const history = useHistory();
-    const [registerEmail, setRegisterEmail] = useState('');
-    const [registerPassword, setRegisterPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [info, setInfo] = useState('');
 
+    const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
+    const [dialogNotification, toggleDialogNotification] = useState(false);
 
-    function handleSubmitRegister(e) {
+    ///////////////////////////////
+
+function goBack() {
+    history.push("/")
+}
+
+   async function handleSubmitRegister(e) {
         e.preventDefault()
-        console.log(
+       toggleError(false);
+        toggleLoading(true);
+
+       // POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND//////////////////////////////////
+           try {
+               const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                   "username": username,
+                   "email": email,
+                   "password": password,
+                   "info": info,
+                   "role": ["user"]
+               });
+               console.log(response);
+               history.push("/");
+
+           } catch (e) {
+               console.error(e)
+               toggleError(true);
+           } finally {
+               toggleLoading(false);
+           }
+
+           console.log(
             `Gebruiker heeft account aangemaakt.
-            Emailadres: ${registerEmail},  
-            Wachtwoord: ${registerPassword}
+            Gebruikersnaam: ${username},
+            Emailadres: ${email},  
+            Wachtwoord: ${password}
            `)
-        history.push("/");
+
     }
-
-
-// POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND
-
-    // async function registerHandler() {
-    //     try {
-    //         const response = await axios.post('http://localhost:3000/login', {
-    //             email: " ",
-    //             password: " ",
-    //         });
-    //         console.log(response)
-    //
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-
-
-
     return (
         <>
 
             <div className="register">
+
                 {/*//HEADER*/}
                 <img className="register-header" src={register} alt="register text"/>
 
@@ -51,46 +68,70 @@ function Register() {
                 <form
                     className="register-page"
                     onSubmit={handleSubmitRegister}>
+
+
                     <p>Geef een emailadres op:</p>
                     <Inputfield
                         fieldId="email-register"
-                        fieldType="text"
-                        fieldName="email-register"
+                        fieldType="email"
+                        fieldName="email"
                         fieldPlaceholder="Emailadres"
-                        fieldContent={registerEmail}
-                        setFieldContent={setRegisterEmail}
+                        fieldContent={email}
+                        setFieldContent={setEmail}
                     />
-                    {
-                        registerPassword.length >= 1 && !registerEmail.includes("@") &&
-                        <span className="error-message">Geef een geldig emailadres op!</span>
+                    {!email.includes("@") && <span className="error-message">Geef een geldig emailadres op!</span>
                     }
+
+                    <p>Geef een gebruikersnaam op:</p>
+                    <Inputfield
+                        fieldId="username-register"
+                        fieldType="text"
+                        fieldName="username"
+                        fieldPlaceholder="Gebruikersnaam"
+                        fieldContent={username}
+                        setFieldContent={setUsername}
+                    />
+                    {username.length >= 1 && email.includes("@") && username.length <= 6 && <span className="error-message">Gebruikersnaam moet uit minimaal 6 tekens bestaan</span>
+                    }
+
+
+
 
                     <p>Geef een wachtwoord op</p>
                     <Inputfield
                         fieldId="password-register"
                         fieldType="password"
-                        fieldName="password-register"
+                        fieldName="password"
                         fieldPlaceholder="Wachtwoord"
-                        fieldContent={registerPassword}
-                        setFieldContent={setRegisterPassword}
+                        fieldContent={password}
+                        setFieldContent={setPassword}
                     />
-                    {
-                        registerPassword.length >= 1 && registerPassword.length <= 4 &&
-                        <span className="error-message">Wachtwoord moet uit minimaal 4 tekens bestaan</span>
+                    {password.length >= 1 && password.length <= 6 && <span className="error-message">Wachtwoord moet uit minimaal 6 tekens bestaan</span>
                     }
+                    {error && <p className="error-message">Er bestaat al een account met dit e-mailadres. Probeer het opnieuw</p>}
 
 
                     <div className="register-navigation">
-                        <button type="button"
-                                onClick={() => history.push("/")}>
+                        <button
+                            onClick={goBack}
+                            type="button">
                             Terug
                         </button>
-                        <button type="submit"
-                                onClick={handleSubmitRegister}>
+                        <button type="submit" disabled={loading}>
                             Registreer!
                         </button>
                     </div>
                 </form>
+                {handleSubmitRegister ? {dialogOpen} &&
+                    <dialog
+                        className="dialog-window"
+                        open={dialogNotification}
+                    >Je bent succesvol geregistreerd!
+                      <Link to="/"> <button>Naar inlogscherm</button> </Link>
+                    </dialog>
+                    :
+                    {dialogClose}
+                }
 
             </div>
 

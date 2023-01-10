@@ -106,6 +106,8 @@
 }
 
 .error-message {
+    width: 150px;
     color: red;
     font-size: 10px;
+
 }

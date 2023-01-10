@@ -15,7 +15,7 @@ function Register() {
 
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
-    const [dialogNotification, toggleDialogNotification] = useState(false);
+
 
     ///////////////////////////////
 
@@ -26,10 +26,9 @@ function goBack() {
    async function handleSubmitRegister(e) {
         e.preventDefault()
        toggleError(false);
-        toggleLoading(true);
-
        // POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND//////////////////////////////////
            try {
+               toggleLoading(true);
                const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
                    "username": username,
                    "email": email,
@@ -64,7 +63,7 @@ function goBack() {
                 <img className="register-header" src={register} alt="register text"/>
 
                 {/*INVOERVELDEN VOOR HET REGISTREREN*/}
-
+                {error && <p className="error-notification">Er is iets fout gegaan, probeer het opnieuw</p>}
                 <form
                     className="register-page"
                     onSubmit={handleSubmitRegister}>
@@ -122,16 +121,8 @@ function goBack() {
                         </button>
                     </div>
                 </form>
-                {handleSubmitRegister ? {dialogOpen} &&
-                    <dialog
-                        className="dialog-window"
-                        open={dialogNotification}
-                    >Je bent succesvol geregistreerd!
-                      <Link to="/"> <button>Naar inlogscherm</button> </Link>
-                    </dialog>
-                    :
-                    {dialogClose}
-                }
+
+
 
             </div>
 

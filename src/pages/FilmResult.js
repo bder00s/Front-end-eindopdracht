@@ -15,6 +15,8 @@ function FilmResult() {
     const {userMood, changeMood} = useContext(appContext);
 
     const [movieResult, setMovieResult] = useState('');
+    const [loading, toggleLoading] = useState(false);
+    const [error, toggleError] = useState(false);
 
     useEffect(() => {
 
@@ -62,19 +64,24 @@ function FilmResult() {
                 }
             }
         }
-        ;
+
 
 //  FILMTITEL + INFO OPHALEN //
 
         async function getMovie() {
             try {
-
+                toggleLoading(true);
+                toggleError(false);
                 const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${getMovieName(userMood, changeMood)}`);
                 console.log(result.data);
                 setMovieResult(result.data);
+
             } catch (e) {
                 console.error(e);
-                console.log("Probeer het opnieuw")
+               toggleError(true);
+            } finally {
+                toggleLoading(false);
+
             }
 
         }
@@ -86,25 +93,26 @@ function FilmResult() {
 
 // PUT REQUEST TO ADD FILMRESULT TO USER-INFO
 
-    // async function saveResult() {
-    //     try {
-    //         const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
-    //             {
-    //                 "info": `${movieResult.Title}`,
-    //                 // "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
-    //                 // "tokenType": "Bearer"
-    //             }
-    //         )
-    //     } catch (e) {
-    //         console.error(e);
-    //     }
-    // }
+    async function saveResult() {
+        try {
+            const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
+                {
+                    "info": `${movieResult.Title}`,
+                    // "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
+                    // "tokenType": "Bearer"
+                }
+            )
+        } catch (e) {
+            console.error(e);
+        }
+    }
 
 
     return (
         <div>
             <NavBar/>
-
+            {loading && <p>Loading...</p>}
+            {error && <p className="error-notification">Er is een fout opgetreden, probeer het opnieuw!</p>}
             {/*//FILM RESULTAAT*/}
             <div className="result" id="filmCard">
                 <article className="result-text">
@@ -132,6 +140,7 @@ function FilmResult() {
                 {/*//RETRY FUNCTIE*/}
                 <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>
             </div>
+
 
         </div>
     );

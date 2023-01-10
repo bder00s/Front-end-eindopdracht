@@ -25,3 +25,12 @@ ul {
 
 }
 
+.error-notification {
+    color: white;
+    background-color: #782FD6;
+    border: red dashed 3px;
+    border-radius: 10px;
+    margin: 4px;
+    padding: 2px;
+}
+

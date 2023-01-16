@@ -78,7 +78,7 @@ function FilmResult() {
 
             } catch (e) {
                 console.error(e);
-               toggleError(true);
+                toggleError(true);
             } finally {
                 toggleLoading(false);
 
@@ -97,11 +97,17 @@ function FilmResult() {
         try {
             const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
                 {
-                    "info": `${movieResult.Title}`,
-                    // "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
-                    // "tokenType": "Bearer"
+                    "info": `${movieResult.imdbID}`
+                },
+                {
+                    headers: {
+                        'Content-Type': "application/json",
+                        'Authorization': "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib25uZTEyMyIsImlhdCI6MTY3Mzg5ODAyMiwiZXhwIjoxNjczOTg0NDIyfQ.xG7MrqJ-nrKYdeY4lhmk1za0sw6-rlqG2wEMzimHZY7TeZJ3GYq0HOQbX319Fz2TzuDtHSQYRkmzdu3mME1kvw"
+                    }
+
                 }
             )
+            console.log(save)
         } catch (e) {
             console.error(e);
         }

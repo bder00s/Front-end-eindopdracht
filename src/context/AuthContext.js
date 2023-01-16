@@ -75,6 +75,7 @@ function AuthContextProvider({children}) {
 
     //GEBRUIKERSINFO OPVRAGEN/////////////////////////////////////////
     async function getUserData(id, token) {
+        'use strict'
         try {
             const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user/${id}`, {
                 headers: {

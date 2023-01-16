@@ -1,7 +1,6 @@
 import React, {useState} from "react"
 import {Link, useHistory} from "react-router-dom";
 import register from "../assets/register-header.svg"
-import NavBar from "../Components/NavBar";
 import Inputfield from "../Components/Inputfield";
 import axios from "axios";
 
@@ -24,6 +23,7 @@ function goBack() {
 }
 
    async function handleSubmitRegister(e) {
+    'use strict'
         e.preventDefault()
        toggleError(false);
        // POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND//////////////////////////////////

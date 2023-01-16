@@ -20,6 +20,7 @@ function Home({toggleAuth}) {
 
     //FUNCTIE DIE HET INLOGGEN AFHANDELD///////////////////////////////////////////////////////
     async function handleSubmitLogin(e) {
+        'use strict'
         e.preventDefault();
         toggleError(false);
         try {

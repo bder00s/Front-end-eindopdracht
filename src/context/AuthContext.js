@@ -17,7 +17,6 @@ function AuthContextProvider({children}) {
     testBackend();
 
     //MOUNTING LIFECYCLE//////////////////////////////////
-
     useEffect(() => {
         const token = localStorage.getItem('token');
 
@@ -75,7 +74,6 @@ function AuthContextProvider({children}) {
 
     //GEBRUIKERSINFO OPVRAGEN/////////////////////////////////////////
     async function getUserData(id, token) {
-        'use strict'
         try {
             const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user/${id}`, {
                 headers: {
@@ -91,6 +89,7 @@ function AuthContextProvider({children}) {
                     username: result.data.username,
                     email: result.data.email,
                     id: result.data.id,
+                    info: result.data.info
                 },
                 status: 'done',
             })

@@ -5,6 +5,7 @@ import retry from "../assets/test.png"
 import NavBar from "../Components/NavBar";
 import {Link} from "react-router-dom";
 import {appContext} from "../App";
+import {AuthContext} from "../context/AuthContext";
 
 
 const keyApi = process.env.REACT_APP_API_KEY
@@ -13,7 +14,8 @@ const keyApi = process.env.REACT_APP_API_KEY
 function FilmResult() {
 
     const {userMood, changeMood} = useContext(appContext);
-
+    const {token} = useContext(AuthContext);
+    const {id} = useContext(AuthContext);
     const [movieResult, setMovieResult] = useState('');
     const [loading, toggleLoading] = useState(false);
     const [error, toggleError] = useState(false);
@@ -97,12 +99,12 @@ function FilmResult() {
         try {
             const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
                 {
-                    "info": `${movieResult.imdbID}`
+                    "info": `${movieResult.imdbID}, ${movieResult.title}`
                 },
                 {
                     headers: {
-                        'Content-Type': "application/json",
-                        'Authorization': "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib25uZTEyMyIsImlhdCI6MTY3Mzg5ODAyMiwiZXhwIjoxNjczOTg0NDIyfQ.xG7MrqJ-nrKYdeY4lhmk1za0sw6-rlqG2wEMzimHZY7TeZJ3GYq0HOQbX319Fz2TzuDtHSQYRkmzdu3mME1kvw"
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token} `
                     }
 
                 }
@@ -141,7 +143,7 @@ function FilmResult() {
                         id="shareButton"
                     />
                 </a>
-                <button onClick={saveResult}>Save result</button>
+                <button className="nav-button" onClick={saveResult}>Save result</button>
 
                 {/*//RETRY FUNCTIE*/}
                 <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>

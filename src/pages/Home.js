@@ -16,12 +16,15 @@ function Home({toggleAuth}) {
     const [loginUsername, setLoginUsername] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
 
     //FUNCTIE DIE HET INLOGGEN AFHANDELD///////////////////////////////////////////////////////
     async function handleSubmitLogin(e) {
+        'use strict'
         e.preventDefault();
         toggleError(false);
         try {
+            toggleLoading(true);
             const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
                 "username": loginUsername,
                 "password": loginPassword,
@@ -34,6 +37,8 @@ function Home({toggleAuth}) {
         } catch (e) {
             console.error(e);
             toggleError(true);
+        } finally {
+            toggleLoading(false);
         }
 
         console.log(`
@@ -49,6 +54,7 @@ function Home({toggleAuth}) {
 
 
             <img className="main-logo" src={logo} alt="logo"/>
+            {loading && <p className="loading-notification">Loading...</p>}
 
             {/*//////////////////INVOERVELDEN VOOR HET INLOGGEN//////////////////////*/}
             <form className="login-form" onSubmit={handleSubmitLogin}>
@@ -76,7 +82,7 @@ function Home({toggleAuth}) {
                 {loginPassword.length >= 1 && loginPassword.length <= 6 &&
                     <span className="error-message">Wachtwoord moet uit minimaal 6 tekens bestaan</span>
                 }
-                {error && <p className="error-message">Kloppen je gegevens wel? 🤔 Probeer het nog eens</p>}
+                {error && <p className="error-message">Kloppen je gegevens wel? 🤔 Deze account bestaat niet</p>}
 
                 <div className="buttons-in-form">
                     <button

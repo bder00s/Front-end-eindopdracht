@@ -1,7 +1,6 @@
 import React, {useState} from "react"
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import register from "../assets/register-header.svg"
-import NavBar from "../Components/NavBar";
 import Inputfield from "../Components/Inputfield";
 import axios from "axios";
 
@@ -11,11 +10,11 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
-    const [info, setInfo] = useState('');
+    // const [info, setInfo] = useState('');
 
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
-    const [dialogNotification, toggleDialogNotification] = useState(false);
+
 
     ///////////////////////////////
 
@@ -24,17 +23,17 @@ function goBack() {
 }
 
    async function handleSubmitRegister(e) {
+    'use strict'
         e.preventDefault()
        toggleError(false);
-        toggleLoading(true);
-
        // POST REQUEST VOOR REGISTRATIEGEGEVENS NAAR BACKEND//////////////////////////////////
            try {
+               toggleLoading(true);
                const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
                    "username": username,
                    "email": email,
                    "password": password,
-                   "info": info,
+                   "info": "nothing yet",
                    "role": ["user"]
                });
                console.log(response);
@@ -64,7 +63,7 @@ function goBack() {
                 <img className="register-header" src={register} alt="register text"/>
 
                 {/*INVOERVELDEN VOOR HET REGISTREREN*/}
-
+                {error && <p className="error-notification">Er is iets fout gegaan, probeer het opnieuw</p>}
                 <form
                     className="register-page"
                     onSubmit={handleSubmitRegister}>
@@ -120,18 +119,11 @@ function goBack() {
                         <button type="submit" disabled={loading}>
                             Registreer!
                         </button>
+                        {loading && <p className="loading-notification">Loading...</p>}
                     </div>
                 </form>
-                {handleSubmitRegister ? {dialogOpen} &&
-                    <dialog
-                        className="dialog-window"
-                        open={dialogNotification}
-                    >Je bent succesvol geregistreerd!
-                      <Link to="/"> <button>Naar inlogscherm</button> </Link>
-                    </dialog>
-                    :
-                    {dialogClose}
-                }
+
+
 
             </div>
 

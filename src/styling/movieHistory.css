@@ -1,0 +1,25 @@
+.movie-history {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.movie-history  button {
+    background: #CBCAFF;
+    border: 2px solid #000000;
+    box-shadow: 3px 4px 0 #782FD6;
+    border-radius: 9px;
+    color: #000000;
+    margin: 10px;
+    padding: 7px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 17px;
+}
+
+
+.header-title {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin: 20px;
+
+}

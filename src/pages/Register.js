@@ -10,13 +10,10 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
-    // const [info, setInfo] = useState('');
-
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
 
 
-    ///////////////////////////////
 
 function goBack() {
     history.push("/")

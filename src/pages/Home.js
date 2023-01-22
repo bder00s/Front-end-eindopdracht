@@ -54,7 +54,7 @@ function Home({toggleAuth}) {
 
 
             <img className="main-logo" src={logo} alt="logo"/>
-            {loading && <p>Loading...</p>}
+            {loading && <p className="loading-notification">Loading...</p>}
 
             {/*//////////////////INVOERVELDEN VOOR HET INLOGGEN//////////////////////*/}
             <form className="login-form" onSubmit={handleSubmitLogin}>
@@ -82,7 +82,7 @@ function Home({toggleAuth}) {
                 {loginPassword.length >= 1 && loginPassword.length <= 6 &&
                     <span className="error-message">Wachtwoord moet uit minimaal 6 tekens bestaan</span>
                 }
-                {error && <p className="error-message">Kloppen je gegevens wel? 🤔 Probeer het nog eens</p>}
+                {error && <p className="error-message">Kloppen je gegevens wel? 🤔 Deze account bestaat niet</p>}
 
                 <div className="buttons-in-form">
                     <button

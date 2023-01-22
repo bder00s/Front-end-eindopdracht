@@ -13,12 +13,15 @@ const keyApi = process.env.REACT_APP_API_KEY
 
 function FilmResult() {
 
+
+
     const {userMood, changeMood} = useContext(appContext);
-    const {token} = useContext(AuthContext);
-    const {id} = useContext(AuthContext);
     const [movieResult, setMovieResult] = useState('');
     const [loading, toggleLoading] = useState(false);
+    const [saving, toggleSaving] = useState(false);
+    const [saved, toggleSaved] = useState(false);
     const [error, toggleError] = useState(false);
+    const {token} = useContext(AuthContext)
 
     useEffect(() => {
 
@@ -96,22 +99,30 @@ function FilmResult() {
 // PUT REQUEST TO ADD FILMRESULT TO USER-INFO
 
     async function saveResult() {
+        const token = localStorage.getItem('token');
         try {
+            toggleSaving(true);
+            toggleSaved(false);
             const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
                 {
-                    "info": `${movieResult.imdbID}, ${movieResult.title}`
+                    "info": `${movieResult.imdbID} & ${movieResult.Title}`
                 },
                 {
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token} `
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
                     }
 
                 }
             )
             console.log(save)
+
         } catch (e) {
             console.error(e);
+            toggleError(true);
+        } finally {
+            toggleSaving(false);
+            toggleSaved(true);
         }
     }
 
@@ -119,11 +130,12 @@ function FilmResult() {
     return (
         <div>
             <NavBar/>
-            {loading && <p>Loading...</p>}
+            {loading && <p className="loading-notification">Loading...</p>}
             {error && <p className="error-notification">Er is een fout opgetreden, probeer het opnieuw!</p>}
             {/*//FILM RESULTAAT*/}
             <div className="result" id="filmCard">
                 <article className="result-text">
+                    {loading && <p className="loading-notification">Loading..</p>}
                     <h1>{movieResult.Title}</h1>
                     <p>{movieResult.Year}</p>
                     <p>Rated {movieResult.imdbRating} on IMDB!</p>
@@ -143,7 +155,11 @@ function FilmResult() {
                         id="shareButton"
                     />
                 </a>
-                <button className="nav-button" onClick={saveResult}>Save result</button>
+                <button className="nav-button"
+                        onClick={saveResult}
+                >{saved ? <span>Film bewaard!</span>: <span>Film bewaren</span>}
+                </button>
+                {saving && <p className="loading-notification">Resultaat opslaan...</p>}
 
                 {/*//RETRY FUNCTIE*/}
                 <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>

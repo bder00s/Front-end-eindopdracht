@@ -15,6 +15,7 @@ import "./styling/startScreen.css"
 import "./styling/filmResult.css"
 import "./styling/login&register.css"
 import "./styling/questions.css"
+import "./styling/movieHistory.css"
 import {AuthContext} from "./context/AuthContext";
 
 

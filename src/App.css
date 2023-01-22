@@ -28,9 +28,14 @@ ul {
 .error-notification {
     color: white;
     background-color: #782FD6;
-    border: red dashed 3px;
+    border: black solid 2px;
     border-radius: 10px;
     margin: 4px;
-    padding: 2px;
+    padding: 4px;
+}
+
+.loading-notification {
+    color: #782FD6;
+    font-style: italic;
 }
 

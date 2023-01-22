@@ -73,9 +73,9 @@ function AuthContextProvider({children}) {
     }
 
     //GEBRUIKERSINFO OPVRAGEN/////////////////////////////////////////
-    async function getUserData(id, token) {
+    async function getUserData(token) {
         try {
-            const result = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user/${id}`, {
+            const result = await axios.get('https://frontend-educational-backend.herokuapp.com/api/user/', {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`
@@ -112,6 +112,7 @@ function AuthContextProvider({children}) {
         isEmail: isAuth.email,
         login: login,
         logout: logout,
+
     };
 
     return (

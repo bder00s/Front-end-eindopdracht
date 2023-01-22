@@ -10,7 +10,7 @@ function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
-    const [info, setInfo] = useState('');
+    // const [info, setInfo] = useState('');
 
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
@@ -33,7 +33,7 @@ function goBack() {
                    "username": username,
                    "email": email,
                    "password": password,
-                   "info": info,
+                   "info": "nothing yet",
                    "role": ["user"]
                });
                console.log(response);
@@ -119,6 +119,7 @@ function goBack() {
                         <button type="submit" disabled={loading}>
                             Registreer!
                         </button>
+                        {loading && <p className="loading-notification">Loading...</p>}
                     </div>
                 </form>
 

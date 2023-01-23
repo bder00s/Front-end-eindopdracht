@@ -39,13 +39,13 @@ function FilmResult() {
                     case "good":
                         return "The Truman Show";
                     case "loved":
-                        return "Love Actually";
+                        return "Her";
                     case "shitty":
                         return "Closer";
                     case "angry":
                         return "The Northman";
                     case "bored":
-                        return "Her";
+                        return "The Room";
                     default:
                         return "Geen film gevonden"
 
@@ -105,7 +105,7 @@ function FilmResult() {
             toggleSaved(false);
             const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
                 {
-                    "info": `${movieResult.imdbID} & ${movieResult.Title}`
+                    "info": ` ${movieResult.Title} (${movieResult.Year})`,
                 },
                 {
                     headers: {
@@ -130,12 +130,12 @@ function FilmResult() {
     return (
         <div>
             <NavBar/>
-            {loading && <p className="loading-notification">Loading...</p>}
-            {error && <p className="error-notification">Er is een fout opgetreden, probeer het opnieuw!</p>}
+            {loading && <p className="loading-notification">Loading...✨</p>}
+            {error && <p className="error-notification">Er is een fout opgetreden, probeer het opnieuw!⚠️</p>}
             {/*//FILM RESULTAAT*/}
             <div className="result" id="filmCard">
                 <article className="result-text">
-                    {loading && <p className="loading-notification">Loading..</p>}
+                    {loading && <p className="loading-notification">Loading...✨</p>}
                     <h1>{movieResult.Title}</h1>
                     <p>{movieResult.Year}</p>
                     <p>Rated {movieResult.imdbRating} on IMDB!</p>
@@ -157,9 +157,9 @@ function FilmResult() {
                 </a>
                 <button className="nav-button"
                         onClick={saveResult}
-                >{saved ? <span>Film bewaard!</span>: <span>Film bewaren</span>}
+                >{saved ? <span>🎬Film bewaard!</span>: <span>Film bewaren</span>}
                 </button>
-                {saving && <p className="loading-notification">Resultaat opslaan...</p>}
+                {saving && <p className="loading-notification">Resultaat opslaan...✨</p>}
 
                 {/*//RETRY FUNCTIE*/}
                 <Link to="/start"> <img src={retry} alt="try again" width="30" className="activeReturn"/> </Link>

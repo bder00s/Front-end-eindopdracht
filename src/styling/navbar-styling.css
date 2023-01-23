@@ -72,6 +72,8 @@
     background-color: #65B1EF;
     position: absolute;
     padding: 5px;
+    border: solid 2px #2A00A0;
+    box-shadow: 3px 4px 0 #782FD6;
 
 }
 

@@ -5,7 +5,7 @@ import Inputfield from "../Components/Inputfield";
 import axios from "axios";
 import {AuthContext} from "../context/AuthContext";
 
-//https://github.com/hogeschoolnovi/novi-educational-backend-documentation
+
 
 
 function Home({toggleAuth}) {

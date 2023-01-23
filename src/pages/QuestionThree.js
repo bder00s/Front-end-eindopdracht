@@ -1,5 +1,4 @@
-import React, {useState, createContext, useContext} from "react"
-import Answer from "../Components/Answer";
+import React, {useContext} from "react"
 import {Link, useHistory} from "react-router-dom";
 import NavButton from "../Components/NavButton";
 import NavBar from "../Components/NavBar";

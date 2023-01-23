@@ -1,6 +1,5 @@
-import React, {useState, createContext, useContext} from "react"
+import React, {useContext} from "react"
 import {Link, useHistory} from "react-router-dom";
-import Answer from "../Components/Answer";
 import NavButton from "../Components/NavButton";
 import homeIcon from "../assets/home.svg";
 import header from "../assets/headertext.svg";

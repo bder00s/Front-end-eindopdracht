@@ -5,7 +5,6 @@ import retry from "../assets/test.png"
 import NavBar from "../Components/NavBar";
 import {Link} from "react-router-dom";
 import {appContext} from "../App";
-import {AuthContext} from "../context/AuthContext";
 
 
 const keyApi = process.env.REACT_APP_API_KEY
@@ -21,7 +20,7 @@ function FilmResult() {
     const [saving, toggleSaving] = useState(false);
     const [saved, toggleSaved] = useState(false);
     const [error, toggleError] = useState(false);
-    const {token} = useContext(AuthContext)
+
 
     useEffect(() => {
 

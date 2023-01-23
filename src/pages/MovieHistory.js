@@ -3,7 +3,6 @@ import NavBar from "../Components/NavBar";
 import axios from "axios";
 
 
-
 function MovieHistory() {
 
     const [showInfo, toggleShowInfo] = useState('');

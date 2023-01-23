@@ -7,7 +7,8 @@
 
 .movie-history-text {
     text-align: center;
-    padding: 12px;
+    padding: 15px;
+
 }
 
 .movie-history-text > p {
@@ -18,7 +19,7 @@
 
 .movie-history-text > h2 {
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    padding: 8px;
+    padding: 20px;
 }
 
 .movie-history-text > h3 {
@@ -35,13 +36,16 @@
 
 .movie-box {
     background: #8470FF;
-    border: 2px solid #000000;
+    border: 2px solid #3622B0;
     box-shadow: inset -5px -5px 0px rgba(0, 0, 0, 0.18);
     border-radius: 10px;
     color: white;
     padding: 10px;
-    margin: 5px;
+    margin: 4px;
     font-weight: normal;
+    font-size: 30px;
+
+
 
 }
 

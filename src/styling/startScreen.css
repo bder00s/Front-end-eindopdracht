@@ -5,9 +5,10 @@
 .activeStartButton :hover {
     width: 260px;
     margin: 0;
-    transform: rotate(-20deg);
-    transition: ease-in-out 0.5s;
+    transform: rotate(-10deg);
+    transition: ease 0.5s;
 }
+
 
 /*// HEADER GEDEELTE */
 

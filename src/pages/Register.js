@@ -116,7 +116,7 @@ function goBack() {
                         <button type="submit" disabled={loading}>
                             Registreer!
                         </button>
-                        {loading && <p className="loading-notification">Loading...</p>}
+                        {loading && <p className="loading-notification">Loading...✨</p>}
                     </div>
                 </form>
 

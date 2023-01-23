@@ -16,7 +16,7 @@ function AuthContextProvider({children}) {
 
     testBackend();
 
-    //MOUNTING LIFECYCLE//////////////////////////////////
+    //MOUNTING LIFECYCLE///////////
     useEffect(() => {
         const token = localStorage.getItem('token');
 
@@ -60,6 +60,9 @@ function AuthContextProvider({children}) {
     history.push("/start");
 
     // GEBRUIKER WORDT UITGELOGD//////////////////////////////////////////////
+
+
+
     function logout() {
         //Token uit local storage verwijderen
         localStorage.removeItem('token')
@@ -117,7 +120,7 @@ function AuthContextProvider({children}) {
 
     return (
         <AuthContext.Provider value={contextData}>
-            {isAuth.status === 'done' ? children : <p>Loading...</p>}
+            {isAuth.status === 'done' ? children : <p>Loading...✨</p>}
         </AuthContext.Provider>
 
 

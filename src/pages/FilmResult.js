@@ -105,7 +105,7 @@ function FilmResult() {
             toggleSaved(false);
             const save = await axios.put('https://frontend-educational-backend.herokuapp.com/api/user/',
                 {
-                    "info": `${movieResult.imdbID} & ${movieResult.Title}`
+                    "info": ` ${movieResult.Title} (${movieResult.Year})`,
                 },
                 {
                     headers: {

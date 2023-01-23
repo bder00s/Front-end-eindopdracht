@@ -5,6 +5,46 @@
     align-items: center;
 }
 
+.movie-history-text {
+    text-align: center;
+    padding: 12px;
+}
+
+.movie-history-text > p {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 17px;
+    margin: 7px;
+}
+
+.movie-history-text > h2 {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    padding: 8px;
+}
+
+.movie-history-text > h3 {
+    background: #CBCAFF;
+    border: 2px solid #782FD6;
+    border-radius: 22px;
+    color: #000000;
+    margin: 7px;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+.movie-box {
+    background: #8470FF;
+    border: 2px solid #000000;
+    box-shadow: inset -5px -5px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    font-weight: normal;
+
+}
+
 .movie-history  button {
     background: #CBCAFF;
     border: 2px solid #000000;
@@ -20,6 +60,7 @@
 
 .header-title {
     font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 30px ;
     margin: 20px;
 
 }

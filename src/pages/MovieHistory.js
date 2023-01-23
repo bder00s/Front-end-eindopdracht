@@ -24,7 +24,6 @@ function MovieHistory() {
                         "Authorization": `Bearer ${token}`
                     }
                 })
-                console.log(result.data);
                 toggleShowInfo(result.data);
 
             } catch (e) {

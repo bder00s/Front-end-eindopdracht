@@ -12,14 +12,11 @@ function QuestionTwo() {
 
     function handleSubmitTwo(e) {
         e.preventDefault()
-        console.log(`Vraag 2 beantwoord:
-        Huidige mood van gebruiker is: ${userMood}`)
         history.push("/question-three")
     }
 
     function onChangeQuestion2(e) {
         e.preventDefault();
-        console.log(`Question 2 selection: ${e.target.value}`);
         changeUserMood(e.target.value)
     }
 

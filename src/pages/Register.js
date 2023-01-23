@@ -33,7 +33,6 @@ function goBack() {
                    "info": "nothing yet",
                    "role": ["user"]
                });
-               console.log(response);
                history.push("/");
 
            } catch (e) {
@@ -42,13 +41,6 @@ function goBack() {
            } finally {
                toggleLoading(false);
            }
-
-           console.log(
-            `Gebruiker heeft account aangemaakt.
-            Gebruikersnaam: ${username},
-            Emailadres: ${email},  
-            Wachtwoord: ${password}
-           `)
 
     }
     return (

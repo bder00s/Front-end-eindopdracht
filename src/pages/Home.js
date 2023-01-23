@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react"
-import {Link, NavLink, useHistory} from "react-router-dom";
+import {NavLink, useHistory} from "react-router-dom";
 import logo from "../assets/logo2.png"
 import Inputfield from "../Components/Inputfield";
 import axios from "axios";
@@ -30,7 +30,7 @@ function Home({toggleAuth}) {
                 "password": loginPassword,
             });
 
-            console.log(response.data);
+
             login(response.data.accessToken);
             history.push("/start");
 
@@ -41,11 +41,6 @@ function Home({toggleAuth}) {
             toggleLoading(false);
         }
 
-        console.log(`
-            Gebruiker logt in.
-            Gebruikersnaam: ${loginUsername},
-            Wachtwoord: ${loginPassword}
-            `);
     }
 
 

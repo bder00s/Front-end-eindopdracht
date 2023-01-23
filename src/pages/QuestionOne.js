@@ -13,14 +13,11 @@ function QuestionOne() {
 
     function handleSubmitOne(e) {
         e.preventDefault()
-        console.log(`Vraag 1 beantwoord.
-        Gebruiker heeft een ${userDay}`)
         history.push("/question-two")
     }
 
     function onChangeQuestion1(e) {
         e.preventDefault();
-        console.log(`Question 1 selection = ${e.target.value}`);
         changeUserDay(e.target.value)
     }
 

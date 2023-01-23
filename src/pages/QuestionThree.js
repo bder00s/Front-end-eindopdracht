@@ -14,15 +14,11 @@ function QuestionThree() {
 
     function handleSubmitThree(e) {
         e.preventDefault()
-            console.log(`Vraag 3 beantwoord.
-      Wil gebruiker zijn mood veranderen? ${changeMood}
-        `)
         history.push("/result")
     }
 
     function onChangeQuestion3(e) {
         e.preventDefault();
-        console.log(`Question 3 - change mood? = ${e.target.value}`)
         toggleChangeMood(e.target.value)
     }
 

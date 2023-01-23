@@ -24,12 +24,6 @@ function FilmResult() {
 
     useEffect(() => {
 
-        function questionData() {
-            console.log(`UserMood = ${userMood}, ChangeMood = ${changeMood}`)
-        }
-
-        questionData()
-
         // ANTWOORDEN VERWERKEN NAAR FILMTITEL/GENRE //
 
         function getMovieName(userMood, changeMood) {
@@ -77,7 +71,6 @@ function FilmResult() {
                 toggleLoading(true);
                 toggleError(false);
                 const result = await axios.get(`https://www.omdbapi.com/?apikey=${keyApi}&t=${getMovieName(userMood, changeMood)}`);
-                console.log(result.data);
                 setMovieResult(result.data);
 
             } catch (e) {
@@ -114,7 +107,7 @@ function FilmResult() {
 
                 }
             )
-            console.log(save)
+
 
         } catch (e) {
             console.error(e);

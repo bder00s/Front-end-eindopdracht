@@ -54,7 +54,6 @@ function AuthContextProvider({children}) {
                 id: decoded.sub,
             }
         });
-        console.log("Gebruiker logt in");
     }
 
     history.push("/start");
@@ -71,7 +70,6 @@ function AuthContextProvider({children}) {
             isAuth: false,
             user: null,
         });
-        console.log("Gebruiker logt uit");
         history.push("/");
     }
 
